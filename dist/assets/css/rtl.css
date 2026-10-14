@@ -1,1 +1,32 @@
-[dir="rtl"] .brand img,[dir="rtl"] .footer-brand img{object-position:right center}[dir="rtl"] .dropdown{left:auto;right:0}[dir="rtl"] .hero-media:after{background:linear-gradient(270deg,rgba(3,26,38,.94),rgba(8,46,67,.72) 45%,rgba(8,46,67,.2))}[dir="rtl"] .badge{left:auto;right:12px}[dir="rtl"] .drawer-panel,[dir="rtl"] .mobile-panel{right:auto;left:0}[dir="rtl"] .mobile-panel{transform:translateX(-100%)}[dir="rtl"] .back-top{right:auto;left:20px}
+[dir="rtl"] .brand img,
+[dir="rtl"] .footer-brand img {
+  object-position: right center;
+}
+[dir="rtl"] .dropdown {
+  left: auto;
+  right: 0;
+}
+[dir="rtl"] .hero-media:after {
+  background: linear-gradient(
+    270deg,
+    rgba(3, 26, 38, 0.94),
+    rgba(8, 46, 67, 0.72) 45%,
+    rgba(8, 46, 67, 0.2)
+  );
+}
+[dir="rtl"] .badge {
+  left: auto;
+  right: 12px;
+}
+[dir="rtl"] .drawer-panel,
+[dir="rtl"] .mobile-panel {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .mobile-panel {
+  transform: translateX(-100%);
+}
+[dir="rtl"] .back-top {
+  right: auto;
+  left: 20px;
+}

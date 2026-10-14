@@ -1,0 +1,512 @@
+[
+  {
+    "group": "about",
+    "id": "aquarium-gallery",
+    "label": "Aquarium gallery",
+    "file": "assets/images/about/aquarium-gallery.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Main_fish_tank_at_Enoshima_Aquarium.jpg",
+    "artist": "Syced",
+    "license": "CC0",
+    "confirmation": "Photograph of a public aquarium gallery display"
+  },
+  {
+    "group": "equipment",
+    "id": "aquascape-tools",
+    "label": "Aquascaping tweezers",
+    "file": "assets/images/equipment/aquascape-tools.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:An_Aquascapist_Planting_Aquatic_Plant_Anubias_Petite_with_Tweezers_in_an_Aquarium.jpg",
+    "artist": "Abhik.Mazumdar.73",
+    "license": "CC BY 4.0",
+    "confirmation": "Photograph of aquascaping tweezers being used to plant Anubias"
+  },
+  {
+    "group": "equipment",
+    "id": "canister-200",
+    "label": "Aquarium water pump (unused research candidate)",
+    "file": "assets/images/equipment/canister-200.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eheim_type_2011,_pump_101101993-4233.jpg",
+    "artist": "Raimond Spekking",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Photograph of an Eheim aquarium pump; removed from the catalog after visual review found it was not a complete canister filter"
+  },
+  {
+    "group": "equipment",
+    "id": "cube-30",
+    "label": "Nano aquarium",
+    "file": "assets/images/equipment/cube-30.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nano_reef_aquarium,_May_2020.jpg",
+    "artist": "Treetopz",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Representative photograph of a compact nano aquarium"
+  },
+  {
+    "group": "equipment",
+    "id": "fresh-test",
+    "label": "Freshwater water test kit",
+    "file": "assets/images/equipment/fresh-test.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:PH_Kit.jpg",
+    "artist": "Sharina Rae 123",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Photograph of liquid-reagent aquarium tests and a colour comparison chart"
+  },
+  {
+    "group": "equipment",
+    "id": "heater-100",
+    "label": "150 W submersible aquarium heater",
+    "file": "assets/images/equipment/heater-100.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_heater1.jpg",
+    "artist": "Dr. David Midgley at en.wikipedia",
+    "license": "CC BY-SA 2.5",
+    "confirmation": "Photograph of a glass-tube aquarium heater with a visible 150 W label"
+  },
+  {
+    "group": "equipment",
+    "id": "heater-200",
+    "label": "Submersible aquarium heater",
+    "file": "assets/images/equipment/heater-200.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Grza%C5%82ka_do_akwarium.jpg",
+    "artist": "Ewkaa",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Photograph of an aquarium heater"
+  },
+  {
+    "group": "equipment",
+    "id": "hob-75",
+    "label": "External canister filter",
+    "file": "assets/images/equipment/hob-75.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_-_external_filter.jpg",
+    "artist": "See source page",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Photograph of a complete external canister filter with hoses"
+  },
+  {
+    "group": "equipment",
+    "id": "marine-test",
+    "label": "Aquarium water test",
+    "file": "assets/images/equipment/marine-test.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Determination_of_acidity_of_the_water.jpg",
+    "artist": "Siruk Solomia",
+    "license": "CC BY 4.0",
+    "confirmation": "Photograph of testing water used for aquariums"
+  },
+  {
+    "group": "equipment",
+    "id": "nano-light-30",
+    "label": "Compact aquarium light (unused research candidate)",
+    "file": "assets/images/equipment/nano-light-30.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium_and_light.jpg",
+    "artist": "Snizhko Nikita Vasilevich",
+    "license": "CC BY 4.0",
+    "confirmation": "Photograph of a light source; removed from the catalog because the equipment body is not clearly visible"
+  },
+  {
+    "group": "equipment",
+    "id": "plant-light-60",
+    "label": "Aquarium LED light",
+    "file": "assets/images/equipment/plant-light-60.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Led_Aquarium_Light.jpg",
+    "artist": "Lime Huang",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Photograph of an aquarium LED fixture"
+  },
+  {
+    "group": "equipment",
+    "id": "reef-120",
+    "label": "Public reef aquarium (unused research candidate)",
+    "file": "assets/images/equipment/reef-120.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:New_York_Aquarium_Reef_Tank.jpg",
+    "artist": "FossilDS",
+    "license": "CC0",
+    "confirmation": "Photograph of a public reef exhibit; removed from the retail catalog because it is not a believable consumer product listing"
+  },
+  {
+    "group": "equipment",
+    "id": "reef-light-90",
+    "label": "Reef aquarium lighting",
+    "file": "assets/images/equipment/reef-light-90.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Georgia_Aquarium_tank_lights_IMG_6993.jpg",
+    "artist": "Don McCulley",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Photograph of lighting installed above a reef display"
+  },
+  {
+    "group": "equipment",
+    "id": "rimless-60",
+    "label": "Glass aquarium",
+    "file": "assets/images/equipment/rimless-60.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-Tank.jpg",
+    "artist": "JohnstonDJ",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Representative photograph of a glass home aquarium"
+  },
+  {
+    "group": "equipment",
+    "id": "sponge-60",
+    "label": "Replacement filter sponge",
+    "file": "assets/images/equipment/sponge-60.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Filtr_g%C4%85bkowy.jpg",
+    "artist": "No machine-readable author provided. Ewkaa assumed (based on copyright claims).",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Photograph of porous replacement filter foam"
+  },
+  {
+    "group": "fish",
+    "id": "angelfish",
+    "label": "Pterophyllum scalare",
+    "file": "assets/images/fish/angelfish.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pterophyllum_scalare_Natural_History_Museum_University_of_Pisa.jpg",
+    "artist": "Mattia Nocciola",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Pterophyllum scalare; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "banggai-cardinal",
+    "label": "Pterapogon kauderni",
+    "file": "assets/images/fish/banggai-cardinal.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Banggai_cardinalfish_(Pterapogon_kauderni)_(43875107345).jpg",
+    "artist": "Rickard Zerpe",
+    "license": "CC BY 2.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Pterapogon kauderni; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "blue-green-chromis",
+    "label": "Chromis viridis",
+    "file": "assets/images/fish/blue-green-chromis.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Blue-green_Chromis,_Kiribati_imported_from_iNaturalist_photo_345755248.jpg",
+    "artist": "(c) Debra Baker, some rights reserved (CC BY)",
+    "license": "CC BY 4.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Chromis viridis; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "cardinal-tetra",
+    "label": "Paracheirodon axelrodi",
+    "file": "assets/images/fish/cardinal-tetra.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_Paracheirodon_axelrodi_(3).jpg",
+    "artist": "CHUCAO",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Paracheirodon axelrodi; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "celestial-pearl-danio",
+    "label": "Danio margaritatus",
+    "file": "assets/images/fish/celestial-pearl-danio.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Danio_Margaritatus_malle_(zoom).jpg",
+    "artist": "Cisamarc",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Danio margaritatus; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "clownfish",
+    "label": "Amphiprion ocellaris",
+    "file": "assets/images/fish/clownfish.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clown_fish_in_the_Andaman_Coral_Reef.jpg",
+    "artist": "Ritiks",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Amphiprion ocellaris; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "coral-beauty",
+    "label": "Centropyge bispinosa",
+    "file": "assets/images/fish/coral-beauty.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Centropyge_bispinosa_1.jpg",
+    "artist": "Jenny (JennyHuang) from Taipei",
+    "license": "CC BY 2.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Centropyge bispinosa; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "corydoras-panda",
+    "label": "Corydoras panda",
+    "file": "assets/images/fish/corydoras-panda.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panda_Corydoras.jpg",
+    "artist": "Chronotopian",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Corydoras panda; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "discus",
+    "label": "Symphysodon aequifasciatus",
+    "file": "assets/images/fish/discus.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%B7%D0%BE%D0%BE%D0%BF%D0%B0%D1%80%D0%BA._%D0%90%D0%BA%D0%B2%D0%B0%D1%80%D0%B8%D1%83%D0%BC.8_-_panoramio.jpg",
+    "artist": "mramorn",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Symphysodon aequifasciatus; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "dwarf-gourami",
+    "label": "Trichogaster lalius",
+    "file": "assets/images/fish/dwarf-gourami.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisa_lalia-Male_and_Female.jpg",
+    "artist": "Felix Gertz",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Trichogaster lalius; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "firefish",
+    "label": "Nemateleotris magnifica",
+    "file": "assets/images/fish/firefish.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fire_dartfish_(Nemateleotris_magnifica)_(43372442502).jpg",
+    "artist": "Rickard Zerpe",
+    "license": "CC BY 2.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Nemateleotris magnifica; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "flame-hawkfish",
+    "label": "Neocirrhites armatus",
+    "file": "assets/images/fish/flame-hawkfish.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flame_Hawkfish_Neocirrhites_armatus.jpg",
+    "artist": "Brian Gratwicke",
+    "license": "CC BY 2.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Neocirrhites armatus; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "harlequin-rasbora",
+    "label": "Trigonostigma heteromorpha",
+    "file": "assets/images/fish/harlequin-rasbora.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Harlequin_rasboras_03.jpg",
+    "artist": "Roel Balingit",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Trigonostigma heteromorpha; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "honey-gourami",
+    "label": "Trichogaster chuna",
+    "file": "assets/images/fish/honey-gourami.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colisasota_male.jpg",
+    "artist": "Antoondommerholt at Dutch Wikipedia",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Trichogaster chuna; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "kuhli-loach",
+    "label": "Pangio kuhlii",
+    "file": "assets/images/fish/kuhli-loach.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuhli_loach_in_aquarium.jpg",
+    "artist": "Iidkk",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Verified photograph from the Wikimedia Commons Pangio kuhlii taxon category"
+  },
+  {
+    "group": "fish",
+    "id": "mandarin-dragonet",
+    "label": "Synchiropus splendidus",
+    "file": "assets/images/fish/mandarin-dragonet.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Synchiropus_splendidus_2_Luc_Viatour.jpg",
+    "artist": "Luc Viatour",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Synchiropus splendidus; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "neon-tetra",
+    "label": "Paracheirodon innesi",
+    "file": "assets/images/fish/neon-tetra.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Neonsalmler_Paracheirodon_innesi.jpg",
+    "artist": "Holger Krisp",
+    "license": "CC BY 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Paracheirodon innesi; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "royal-gramma",
+    "label": "Gramma loreto",
+    "file": "assets/images/fish/royal-gramma.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gramma_loreto,_Adult_(Royal_Gramma).jpg",
+    "artist": "Smithsonian Institution from United States",
+    "license": "No restrictions",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Gramma loreto; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "watchman-goby",
+    "label": "Cryptocentrus cinctus",
+    "file": "assets/images/fish/watchman-goby.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocentrus_cinctus.JPG",
+    "artist": "User:Haplochromis",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Cryptocentrus cinctus; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "fish",
+    "id": "yellow-tang",
+    "label": "Zebrasoma flavescens",
+    "file": "assets/images/fish/yellow-tang.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zebrasoma_flavescens_Luc_Viatour.jpg",
+    "artist": "Luc Viatour",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Zebrasoma flavescens; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "home",
+    "id": "freshwater-aquarium",
+    "label": "Freshwater aquarium",
+    "file": "assets/images/home/freshwater-aquarium.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aquarium-Tank.jpg",
+    "artist": "JohnstonDJ",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Photograph of a freshwater home aquarium"
+  },
+  {
+    "group": "home",
+    "id": "hero-reef",
+    "label": "Reef aquarium",
+    "file": "assets/images/home/hero-reef.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_Aquarium.jpg",
+    "artist": "Dieter Karner",
+    "license": "CC BY 2.0",
+    "confirmation": "Photograph of a reef aquarium"
+  },
+  {
+    "group": "home",
+    "id": "marine-aquarium",
+    "label": "Marine aquarium",
+    "file": "assets/images/home/marine-aquarium.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Reef_aquarium.jpg",
+    "artist": "Daniel78",
+    "license": "CC BY-SA 2.5",
+    "confirmation": "Photograph of a marine reef aquarium"
+  },
+  {
+    "group": "home",
+    "id": "planted-aquarium",
+    "label": "Aquarium under LED lighting",
+    "file": "assets/images/home/planted-aquarium.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Acuario_iluminado_con_l%C3%A1mparas_led.jpg",
+    "artist": "Gustavo Sivila",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Photograph of an aquarium illuminated with LED lamps"
+  },
+  {
+    "group": "plants",
+    "id": "amazon-sword",
+    "label": "Echinodorus grisebachii",
+    "file": "assets/images/plants/amazon-sword.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Echinodorus_bleheri.jpg",
+    "artist": "Salvatore vitale",
+    "license": "Public domain",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Echinodorus grisebachii; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "anubias-nana",
+    "label": "Anubias barteri",
+    "file": "assets/images/plants/anubias-nana.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubias_barteri_var_glabra.jpg",
+    "artist": "en:User:Tsunamicarlos",
+    "license": "Public domain",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Anubias barteri; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "bucephalandra",
+    "label": "Bucephalandra botanical plate (unused research candidate)",
+    "file": "assets/images/plants/bucephalandra.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bucephalandra_botanical_drawing.png",
+    "artist": "Drawing: Josef Seboth (1814-1883). Litography: O. Sommer (unknown)",
+    "license": "Public domain",
+    "confirmation": "Historical botanical plate for Bucephalandra; removed from the retail catalog because it is not a representative product photograph"
+  },
+  {
+    "group": "plants",
+    "id": "crypt-wendtii",
+    "label": "Cryptocoryne wendtii",
+    "file": "assets/images/plants/crypt-wendtii.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cryptocoryne_wendtii.JPG",
+    "artist": "Haplochromis",
+    "license": "CC BY 2.5",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Cryptocoryne wendtii; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "dwarf-hairgrass",
+    "label": "Eleocharis parvula",
+    "file": "assets/images/plants/dwarf-hairgrass.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eleocharis_parvula_NRCS-1.jpg",
+    "artist": "Robert H. Mohlenbrock",
+    "license": "Public domain",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Eleocharis parvula; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "java-fern",
+    "label": "Microsorum pteropus",
+    "file": "assets/images/plants/java-fern.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Microsorum_pteropus.jpg",
+    "artist": "Tsunamicarlos at English Wikipedia",
+    "license": "Public domain",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Microsorum pteropus; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "java-moss",
+    "label": "Taxiphyllum barbieri",
+    "file": "assets/images/plants/java-moss.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Javamoos.jpg",
+    "artist": "See source page",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Taxiphyllum barbieri; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "monte-carlo",
+    "label": "Micranthemum tweediei",
+    "file": "assets/images/plants/monte-carlo.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Micranthemum_tweediei-1-veda_aquarium-bengaluru-India.jpg",
+    "artist": "Yercaud-elango",
+    "license": "CC BY 4.0",
+    "confirmation": "File description explicitly identifies Micranthemum tweediei (Monte Carlo)"
+  },
+  {
+    "group": "plants",
+    "id": "red-root-floater",
+    "label": "Phyllanthus fluitans",
+    "file": "assets/images/plants/red-root-floater.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Phyllanthus_fluitans_2010-06-20_01.jpg",
+    "artist": "Agnieszka Kwiecień, Nova",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Phyllanthus fluitans; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "rotala-rotundifolia",
+    "label": "Rotala rotundifolia",
+    "file": "assets/images/plants/rotala-rotundifolia.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rotala_rotundifolia.jpg",
+    "artist": "Vinayaraj",
+    "license": "CC BY-SA 3.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Rotala rotundifolia; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "vallisneria",
+    "label": "Vallisneria spiralis",
+    "file": "assets/images/plants/vallisneria.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vallisneria_spiralis.jpg",
+    "artist": "Lara Gudmundsdottir",
+    "license": "CC BY-SA 4.0",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Vallisneria spiralis; visually reviewed in the catalog contact sheet"
+  },
+  {
+    "group": "plants",
+    "id": "water-wisteria",
+    "label": "Hygrophila difformis",
+    "file": "assets/images/plants/water-wisteria.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hygrophila_difformis.jpg",
+    "artist": "en:User:Tsunamicarlos",
+    "license": "Public domain",
+    "confirmation": "Lead image on the English Wikipedia article resolved for the exact taxon Hygrophila difformis; visually reviewed in the catalog contact sheet"
+  }
+]

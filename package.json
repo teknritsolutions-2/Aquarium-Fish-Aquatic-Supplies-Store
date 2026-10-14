@@ -1,0 +1,11 @@
+{
+  "name": "aquarium-fish-aquatic-supplies-store",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "docs:images": "node scripts/generate-image-sources.mjs",
+    "test": "node tests/validate.mjs"
+  }
+}
