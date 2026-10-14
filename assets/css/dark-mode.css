@@ -1,4 +1,7 @@
 [data-theme="dark"] {
+  --ocean: #70c8e5;
+  --blue: #0f7da4;
+  --water: #70c8e5;
   --soft: #071923;
   --light: #102936;
   --surface: #102936;
@@ -16,16 +19,27 @@
 [data-theme="dark"] .site-header {
   background: rgba(7, 25, 35, 0.88);
 }
-[data-theme="dark"] .brand img,
-[data-theme="dark"] .mobile-head img {
-  content: url("../brand/logo-white.svg");
+[data-theme="dark"] .logo-light {
+  display: none;
 }
-[data-theme="dark"] .hero .wave {
-  color: var(--soft);
+[data-theme="dark"] .logo-dark {
+  display: block;
 }
 [data-theme="dark"] .badge {
   background: rgba(7, 25, 35, 0.9);
   color: #fff;
+}
+[data-theme="dark"] .species-card {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+[data-theme="dark"] .availability,
+[data-theme="dark"] .text-link,
+[data-theme="dark"] .about-story blockquote {
+  color: #70c8e5;
+}
+[data-theme="dark"] .species-commerce .price,
+[data-theme="dark"] .care-summary dd {
+  color: var(--ink);
 }
 [data-theme="dark"] .btn-secondary {
   background: #f2f8fa;

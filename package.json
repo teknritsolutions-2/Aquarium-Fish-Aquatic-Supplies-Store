@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "docs:images": "node scripts/generate-image-sources.mjs",
-    "test": "node tests/validate.mjs"
+    "test": "node tests/validate.mjs && node tests/browser.mjs",
+    "test:browser": "node tests/browser.mjs"
   }
 }

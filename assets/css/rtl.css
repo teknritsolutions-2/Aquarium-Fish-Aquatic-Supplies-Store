@@ -14,10 +14,6 @@
     rgba(8, 46, 67, 0.2)
   );
 }
-[dir="rtl"] .badge {
-  left: auto;
-  right: 12px;
-}
 [dir="rtl"] .drawer-panel,
 [dir="rtl"] .mobile-panel {
   right: auto;
