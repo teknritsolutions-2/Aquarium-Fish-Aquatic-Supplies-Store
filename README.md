@@ -2,15 +2,12 @@
 
 A modern, responsive, frontend storefront for aquarium fish, aquatic plants, equipment, and care guides built with HTML5, CSS3, and vanilla JavaScript.
 
-🌐 **Live Website**: [https://teknritsolutions-2.github.io/Aquarium-Fish-Aquatic-Supplies-Store/](https://teknritsolutions-2.github.io/Aquarium-Fish-Aquatic-Supplies-Store/)
+🌐 **Live Website**: [https://teknritsolutions-2.github.io/Aquarium-Fish-Aquatic-Supplies-Store/pages/index.html](https://teknritsolutions-2.github.io/Aquarium-Fish-Aquatic-Supplies-Store/pages/index.html)
 
 ## File Structure
 
 ```
 .
-├── index.html (root entry point for hosting)
-├── .nojekyll (GitHub Pages static bypass)
-├── 404.html (root 404 handler)
 ├── assets/
 │   ├── brand/
 │   │   ├── logo.svg
