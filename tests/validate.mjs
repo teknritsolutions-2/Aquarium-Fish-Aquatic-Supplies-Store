@@ -190,6 +190,18 @@ if (!mainSource.includes("logo-light") || !mainSource.includes("logo-dark"))
   failures.push("Header logo variants are incomplete");
 if (/content:\s*url/.test(darkSource))
   failures.push("Dark mode still swaps logos through CSS content replacement");
+if (!mainSource.includes('class="plant-facts"'))
+  failures.push("Plant cards do not use structured facts");
+if (!mainSource.includes('class="guide-highlights"'))
+  failures.push("Featured guide cards do not fill their layout with useful content");
+if (!mainSource.includes('spec-grid species-specs') || !mainSource.includes('spec-grid product-specs'))
+  failures.push("Detail pages do not use balanced specification grids");
+if (!/\.plant-support-row \.equipment-card\s*\{[\s\S]*?grid-template-columns:/.test(cssSource))
+  failures.push("Plant support cards are not using the compact horizontal layout");
+if (!/\.species-heading\s*\{[\s\S]*?min-height:\s*66px/.test(cssSource))
+  failures.push("Species card headings do not reserve a shared alignment row");
+if (!/\.care-summary\s*\{[\s\S]*?min-height:\s*98px/.test(cssSource))
+  failures.push("Species care summaries do not share a stable height");
 
 for (const file of sourceHtml) {
   const rel = relative(root, file);

@@ -64,6 +64,22 @@ try {
   assert((await page.locator(".bag-count").textContent()) === "1", "Bag count should update");
   assert((await page.locator(".bag-trigger").getAttribute("aria-label")).includes("1 item"), "Bag label should announce quantity");
 
+  await page.goto(`${origin}/pages/fish-catalog.html`, { waitUntil: "networkidle" });
+  const fishCardHeights = await page.locator(".species-card").evaluateAll((cards) =>
+    cards.slice(0, 3).map((card) => Math.round(card.getBoundingClientRect().height)),
+  );
+  assert(Math.max(...fishCardHeights) - Math.min(...fishCardHeights) <= 2, "Fish cards should align by row");
+  const overflowingFacts = await page.locator(".care-summary dd").evaluateAll((facts) =>
+    facts.filter((fact) => fact.scrollWidth > fact.clientWidth + 1).length,
+  );
+  assert(overflowingFacts === 0, "Fish care facts should not overflow their cells");
+
+  await page.goto(`${origin}/pages/aquatic-plants.html`, { waitUntil: "networkidle" });
+  const plantCardHeights = await page.locator(".plant-card").evaluateAll((cards) =>
+    cards.slice(0, 4).map((card) => Math.round(card.getBoundingClientRect().height)),
+  );
+  assert(Math.max(...plantCardHeights) - Math.min(...plantCardHeights) <= 2, "Plant cards should align by row");
+
   await page.setViewportSize({ width: 390, height: 844 });
   await page.locator(".mobile-toggle").click();
   const mobileLabels = await page.locator(".mobile-nav > *").evaluateAll((items) =>
