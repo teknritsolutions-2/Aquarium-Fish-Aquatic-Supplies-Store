@@ -7,12 +7,9 @@
   right: 0;
 }
 [dir="rtl"] .hero-media:after {
-  background: linear-gradient(
-    270deg,
-    rgba(3, 26, 38, 0.94),
-    rgba(8, 46, 67, 0.72) 45%,
-    rgba(8, 46, 67, 0.2)
-  );
+  background:
+    radial-gradient(ellipse at center, rgba(3, 26, 38, 0.65) 0%, rgba(3, 26, 38, 0.88) 100%),
+    linear-gradient(180deg, rgba(3, 26, 38, 0.3) 0%, rgba(3, 26, 38, 0.72) 100%);
 }
 [dir="rtl"] .drawer-panel,
 [dir="rtl"] .mobile-panel {
@@ -25,4 +22,14 @@
 [dir="rtl"] .back-top {
   right: auto;
   left: 20px;
+}
+[dir="rtl"] .custom-select-option {
+  text-align: right;
+}
+[dir="rtl"] select,
+[dir="rtl"] .field select,
+[dir="rtl"] .toolbar select {
+  background-position: left 14px center;
+  padding-inline-start: 14px;
+  padding-inline-end: 38px;
 }

@@ -120,3 +120,14 @@
 [data-theme="dark"] textarea {
   color-scheme: dark;
 }
+[data-theme="dark"] .custom-select-option:hover,
+[data-theme="dark"] .custom-select-option:focus-visible {
+  background: rgba(112, 200, 229, 0.16);
+}
+[data-theme="dark"] .custom-select-option.selected {
+  color: var(--ocean);
+  background: rgba(112, 200, 229, 0.12);
+}
+[data-theme="dark"] .custom-select-check {
+  color: var(--ocean);
+}

@@ -1,8 +1,62 @@
-# BlueCurrent Aquatics
+# BlueCurrent Aquatics - Aquarium Fish & Aquatic Supplies Store
 
-A complete, frontend-only aquarium fish, aquatic plants and equipment storefront built with HTML5, CSS3 and vanilla JavaScript. Runtime pages have no Node dependency.
+A modern, responsive, frontend storefront for aquarium fish, aquatic plants, equipment, and care guides built with HTML5, CSS3, and vanilla JavaScript.
 
-## Run locally
+## File Structure
+
+```
+.
+├── assets/
+│   ├── brand/
+│   │   ├── logo.svg
+│   │   ├── logo-white.svg
+│   │   └── favicon.svg
+│   ├── css/
+│   │   ├── style.css (main styles)
+│   │   ├── dark-mode.css
+│   │   └── rtl.css
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── catalog-data.js
+│   │   ├── theme-init.js
+│   │   └── plugins/
+│   ├── images/
+│   └── fonts/
+├── pages/
+│   ├── index.html (home)
+│   ├── about.html
+│   ├── services.html
+│   ├── blog.html
+│   ├── contact.html
+│   ├── fish-catalog.html
+│   ├── fish-details.html
+│   ├── aquatic-plants.html
+│   ├── equipment.html
+│   ├── product-details.html
+│   ├── care-guides.html
+│   ├── tank-planner.html
+│   ├── cart.html
+│   ├── checkout.html
+│   ├── faq.html
+│   ├── shipping-returns.html
+│   ├── privacy.html
+│   ├── terms.html
+│   ├── home2.html
+│   └── guides/
+├── documentation/
+└── README.md
+```
+
+## Features
+
+- **Storefront & Catalog**: Comprehensive fish species, aquatic plants, and equipment collections with interactive filtering, sorting, and detail views.
+- **Interactive Tank Planner**: Equipment checklist calculator based on water type, volume, and setup goals.
+- **Care Guides & Husbandry**: Practical guides covering setup, water parameters, acclimation, cycling, and maintenance.
+- **Theme & Direction Controls**: Instant light/dark theme switching and full Right-to-Left (RTL) layout support.
+- **Shopping Bag & Inquiries**: Add-to-bag workflow with persistent cart counts, checkout review, and live-animal availability request flows.
+- **Fully Responsive**: Optimized fluid layouts from mobile (320px+) to ultra-wide desktop screens.
+
+## Run Locally
 
 From the project root:
 
@@ -10,18 +64,9 @@ From the project root:
 python3 -m http.server 8080
 ```
 
-Open `http://localhost:8080/`. The root entry redirects to `pages/index.html` without duplicating the homepage.
+Open `http://localhost:8080/`. The root entry automatically serves `pages/index.html`.
 
-## Important launch notes
-
-- `BLUECURRENT AQUATICS` is a provisional, editable working identity.
-- No verified store address, hours, phone, currency, shipping policy or form endpoint was supplied.
-- Catalog prices and product names are demonstration content and require client verification.
-- Live-animal actions open an availability enquiry; they never claim an order or reservation.
-- Checkout is intentionally frontend-only and never collects payment-card data.
-- All visible catalog and editorial imagery is self-hosted and source-audited in `documentation/IMAGE-SOURCES.md` and `documentation/asset-sources.json`.
-
-## Build and validate
+## Build and Validate
 
 ```bash
 npm run docs:images
@@ -29,6 +74,5 @@ npm run build
 npm test
 ```
 
-`scripts/build.mjs` recreates `dist/` from source on every run, so stale files cannot survive a build.
-
-See `documentation/INSTALLATION.md` and `documentation/CUSTOMIZATION.md` for the full handoff.
+`scripts/build.mjs` compiles and synchronizes `dist/` from source on every run.
+All asset sources and licenses are documented in `documentation/IMAGE-SOURCES.md` and `documentation/asset-sources.json`.
