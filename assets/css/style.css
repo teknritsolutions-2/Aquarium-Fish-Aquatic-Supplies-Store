@@ -95,7 +95,7 @@ p {
   margin: 0 0 1rem;
 }
 .container {
-  width: min(calc(100% - 40px), var(--container));
+  width: min(calc(100% - 80px), var(--container));
   margin-inline: auto;
 }
 .section {
@@ -585,7 +585,7 @@ p {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 20px;
+  padding: 20px 18px;
 }
 .card-body h3 {
   margin-bottom: 4px;
@@ -602,7 +602,7 @@ p {
 }
 .plant-facts div {
   min-width: 0;
-  padding: 8px 6px;
+  padding: 8px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -617,14 +617,15 @@ p {
 .plant-facts dt {
   margin-bottom: 3px;
   color: var(--muted);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 .plant-facts dd {
   margin-top: auto;
   color: var(--ink);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -766,26 +767,26 @@ p {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 21px;
+  padding: 20px 18px;
 }
 .species-heading {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: flex-start;
-  gap: 12px;
+  gap: 10px;
 }
 .species-heading > div {
   min-width: 0;
 }
 .species-heading h3 {
   margin-bottom: 4px;
-  font-size: 1.16rem;
+  font-size: 1.14rem;
   overflow-wrap: anywhere;
 }
 .availability {
   flex: none;
   color: var(--ocean);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 800;
 }
 .care-summary {
@@ -796,7 +797,7 @@ p {
 }
 .care-summary div {
   min-width: 0;
-  padding: 8px 6px;
+  padding: 8px 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -807,15 +808,16 @@ p {
 .care-summary dt {
   margin-bottom: 3px;
   color: var(--muted);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 .care-summary dd {
   margin: 0;
   margin-top: auto;
   color: var(--ink);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 800;
   line-height: 1.25;
   letter-spacing: -0.01em;
@@ -824,16 +826,17 @@ p {
 }
 .species-commerce {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 12px;
+  gap: 8px;
   margin-top: auto;
   color: var(--muted);
-  font-size: 0.84rem;
+  font-size: 0.82rem;
 }
 .species-commerce > span:last-child {
-  max-width: 48%;
+  max-width: 58%;
   text-align: end;
+  line-height: 1.25;
 }
 .species-commerce .price {
   color: var(--ink);
@@ -2257,12 +2260,12 @@ select,
     font-weight: 700;
   }
 }
-@media (max-width: 820px) {
+@media (max-width: 900px) {
   :root {
     --header: 70px;
   }
   .container {
-    width: min(calc(100% - 36px), var(--container));
+    width: min(calc(100% - 80px), var(--container));
   }
   .section {
     padding: 58px 0;
@@ -2275,30 +2278,71 @@ select,
   }
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   .grid-3 > :last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
   .species-tile-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .species-tile-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
   .species-tile-grid-four {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   .species-tile {
-    min-height: 400px;
+    min-height: 390px;
   }
   .species-tile-copy {
-    padding: 20px 18px 16px;
+    padding: 22px 20px 18px;
   }
   .species-tile-copy strong {
-    font-size: 1.18rem;
+    font-size: 1.22rem;
     min-height: 50px;
     display: flex;
     align-items: flex-start;
+  }
+  .species-heading h3 {
+    font-size: 1.08rem;
+    line-height: 1.3;
+  }
+  .availability {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .care-summary,
+  .plant-facts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 12px 0;
+  }
+  .care-summary div,
+  .plant-facts div {
+    padding: 7px 4px;
+  }
+  .care-summary dt,
+  .plant-facts dt {
+    font-size: 0.70rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  .care-summary dd,
+  .plant-facts dd {
+    font-size: 0.74rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+  .card-actions .btn {
+    padding: 9px 10px;
+    font-size: 0.86rem;
+    white-space: nowrap;
   }
   .pathway-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2358,6 +2402,18 @@ select,
   }
 }
 @media (max-width: 680px) {
+  .container {
+    width: min(calc(100% - 40px), var(--container));
+  }
+  .brand {
+    width: 216px;
+    min-width: 180px;
+    flex-shrink: 0;
+  }
+  .brand img,
+  .brand-lockup {
+    height: 46px;
+  }
   .grid-2,
   .grid-3,
   .grid-4,
@@ -2511,7 +2567,7 @@ select,
 }
 @media (max-width: 560px) {
   .container {
-    width: min(calc(100% - 32px), var(--container));
+    width: min(calc(100% - 40px), var(--container));
   }
   .section {
     padding: 42px 0;
@@ -2526,17 +2582,17 @@ select,
   .brand {
     display: flex;
     align-items: center;
-    width: 174px;
-    min-width: 145px;
+    width: 205px;
+    min-width: 175px;
     flex-shrink: 0;
   }
   .brand img {
-    height: 40px;
+    height: 44px;
   }
   .brand-lockup {
     display: block;
     width: 100%;
-    height: 40px;
+    height: 44px;
   }
   .nav-tools {
     display: flex;
@@ -2550,9 +2606,9 @@ select,
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    flex: 0 0 44px;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
   }
   .nav-tools .theme-toggle,
   .nav-tools .dir-toggle {
@@ -2598,12 +2654,13 @@ select,
 }
 @media (max-width: 390px) {
   .brand {
-    width: 145px;
-    min-width: 130px;
+    width: 185px;
+    min-width: 160px;
+    flex-shrink: 0;
   }
   .brand img,
   .brand-lockup {
-    height: 36px;
+    height: 40px;
   }
   .nav-tools {
     gap: 6px;
@@ -2633,16 +2690,16 @@ select,
   }
   .care-summary div,
   .plant-facts div {
-    padding: 8px 4px;
+    padding: 8px 3px;
     text-align: center;
   }
   .care-summary dt,
   .plant-facts dt {
-    font-size: 0.72rem;
+    font-size: 0.70rem;
   }
   .care-summary dd,
   .plant-facts dd {
-    font-size: 0.74rem;
+    font-size: 0.73rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2650,6 +2707,29 @@ select,
   .care-summary dt,
   .care-summary dd {
     min-height: 0;
+  }
+}
+@media (max-width: 340px) {
+  .container {
+    width: min(calc(100% - 24px), var(--container));
+  }
+  .brand {
+    width: 162px;
+    min-width: 140px;
+  }
+  .brand img,
+  .brand-lockup {
+    height: 36px;
+  }
+  .nav-tools {
+    gap: 4px;
+  }
+  .nav-tools .search-trigger,
+  .nav-tools .bag-trigger,
+  .nav-tools .mobile-toggle {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
   }
 }
 @media (min-width: 561px) {
