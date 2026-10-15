@@ -56,23 +56,16 @@ A modern, responsive, frontend storefront for aquarium fish, aquatic plants, equ
 - **Shopping Bag & Inquiries**: Add-to-bag workflow with persistent cart counts, checkout review, and live-animal availability request flows.
 - **Fully Responsive**: Optimized fluid layouts from mobile (320px+) to ultra-wide desktop screens.
 
-## Run Locally
+## Getting Started
 
-From the project root:
+Open `pages/index.html` directly in any modern browser, or serve locally with any standard web server:
 
 ```bash
+# Using Python
 python3 -m http.server 8080
+
+# Navigate to: http://localhost:8080/pages/index.html
 ```
 
-Open `http://localhost:8080/`. The root entry automatically serves `pages/index.html`.
-
-## Build and Validate
-
-```bash
-npm run docs:images
-npm run build
-npm test
-```
-
-`scripts/build.mjs` compiles and synchronizes `dist/` from source on every run.
 All asset sources and licenses are documented in `documentation/IMAGE-SOURCES.md` and `documentation/asset-sources.json`.
+For customization guidelines, see `documentation/CUSTOMIZATION.md`.

@@ -1,1 +1,0 @@
-(function(){try{const t=localStorage.getItem('bc-theme')||((matchMedia('(prefers-color-scheme:dark)').matches)?'dark':'light');document.documentElement.dataset.theme=t;document.documentElement.dir=localStorage.getItem('bc-dir')||'ltr'}catch(e){}})();
