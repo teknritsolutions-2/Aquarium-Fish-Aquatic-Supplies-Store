@@ -59,10 +59,18 @@ try {
   assert((await page.locator("html").getAttribute("dir")) === "rtl", "Direction should switch to RTL");
 
   await page.goto(`${origin}/pages/equipment.html`, { waitUntil: "networkidle" });
+  await page.locator(".theme-toggle").first().click();
+  assert((await page.locator("html").getAttribute("data-theme")) === "dark", "Theme toggle should enable dark mode");
+  const darkOutlineColor = await page.locator(".equipment-card .btn-outline").first().evaluate((button) => getComputedStyle(button).color);
+  assert(darkOutlineColor !== "rgb(32, 43, 50)", "Dark outlined controls need an explicit light foreground");
   await page.locator(".add-cart").first().click();
   assert(!(await page.locator(".bag-count").isHidden()), "Non-empty bag count should be visible");
   assert((await page.locator(".bag-count").textContent()) === "1", "Bag count should update");
   assert((await page.locator(".bag-trigger").getAttribute("aria-label")).includes("1 item"), "Bag label should announce quantity");
+
+  await page.goto(`${origin}/pages/cart.html`, { waitUntil: "networkidle" });
+  assert((await page.locator(".cart-controls").count()) > 0, "Cart controls should share the aligned control component");
+  assert(await page.locator(".cart-remove").first().isVisible(), "Remove action should remain visible in dark mode");
 
   await page.goto(`${origin}/pages/fish-catalog.html`, { waitUntil: "networkidle" });
   const fishCardHeights = await page.locator(".species-card").evaluateAll((cards) =>
@@ -79,6 +87,10 @@ try {
     cards.slice(0, 4).map((card) => Math.round(card.getBoundingClientRect().height)),
   );
   assert(Math.max(...plantCardHeights) - Math.min(...plantCardHeights) <= 2, "Plant cards should align by row");
+  const splitPlantFacts = await page.locator(".plant-facts dd").evaluateAll((facts) =>
+    facts.filter((fact) => fact.scrollWidth > fact.clientWidth + 1).length,
+  );
+  assert(splitPlantFacts === 0, "Plant facts should fit without clipping or mid-word overflow");
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.locator(".mobile-toggle").click();
@@ -94,6 +106,11 @@ try {
   await page.goto(`${origin}/pages/care-guides.html`, { waitUntil: "networkidle" });
   assert((await page.locator(".article-card.featured").count()) === 1, "Care guides need one featured card");
   assert((await page.locator(".article-card.closing").count()) === 1, "Care guides need a balanced closing card");
+  assert((await page.locator(".guide-meta").first().textContent()).includes("·"), "Guide metadata needs a visible separator");
+
+  await page.setViewportSize({ width: 997, height: 760 });
+  await page.goto(`${origin}/pages/home2.html`, { waitUntil: "networkidle" });
+  assert(await page.locator(".hotspot-card").first().isVisible(), "Hotspot explanations should remain visible at landscape tablet widths");
 
   console.log("Browser interaction tests passed.");
 } finally {

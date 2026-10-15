@@ -202,6 +202,16 @@ if (!/\.species-heading\s*\{[\s\S]*?min-height:\s*66px/.test(cssSource))
   failures.push("Species card headings do not reserve a shared alignment row");
 if (!/\.care-summary\s*\{[\s\S]*?min-height:\s*98px/.test(cssSource))
   failures.push("Species care summaries do not share a stable height");
+if (!mainSource.includes('min read <b aria-hidden="true">·</b> Practical guide'))
+  failures.push("Care guide metadata is missing its visible separator");
+if (!mainSource.includes('class="cart-controls"') || !mainSource.includes('class="btn btn-outline btn-sm cart-remove"'))
+  failures.push("Bag quantity and removal controls do not use the shared aligned component");
+if (!/@media \(min-width: 821px\)\s*\{[\s\S]*?\.hotspot-card\s*\{[\s\S]*?opacity:\s*1/.test(cssSource))
+  failures.push("Scene hotspot descriptions are not persistent at landscape tablet widths");
+if (!/\[data-theme="dark"\] \.nav-link\.active/.test(darkSource) || !/\[data-theme="dark"\] \.btn-outline/.test(darkSource))
+  failures.push("Dark-mode navigation and outlined controls lack explicit contrast rules");
+if (/\.(?:plant-facts|care-summary) dd\s*\{[^}]*overflow-wrap:\s*anywhere/.test(cssSource))
+  failures.push("Card facts may still split values in the middle of words");
 
 for (const file of sourceHtml) {
   const rel = relative(root, file);

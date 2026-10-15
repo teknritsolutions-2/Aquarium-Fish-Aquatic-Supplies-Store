@@ -98,7 +98,7 @@
       "fish-acclimation": ["Reduce avoidable introduction stress", "Observe closely after release"],
       "marine-tank-basics": ["Build around stable salinity", "Stock a mature system gradually"],
     };
-    return `<article class="card article-card${featured ? " featured" : ""}${closing ? " closing" : ""}"><div class="card-media"><img src="${g.image}" alt="${g.title}" loading="lazy"><span class="badge">${g.category}</span></div><div class="card-body"><h3>${g.title}</h3><p>${g.summary}</p><div class="guide-meta"><span>${g.minutes} min read</span><span>Practical guide</span></div>${featured ? `<ul class="guide-highlights">${highlights[g.id].map((point) => `<li>${point}</li>`).join("")}</ul>` : ""}<a class="btn btn-outline btn-sm" href="${page("guides/" + g.id + ".html")}">Read guide</a></div></article>`;
+    return `<article class="card article-card${featured ? " featured" : ""}${closing ? " closing" : ""}"><div class="card-media"><img src="${g.image}" alt="${g.title}" loading="lazy"><span class="badge">${g.category}</span></div><div class="card-body"><h3>${g.title}</h3><p>${g.summary}</p><div class="guide-meta"><span>${g.minutes} min read <b aria-hidden="true">·</b> Practical guide</span></div>${featured ? `<ul class="guide-highlights">${highlights[g.id].map((point) => `<li>${point}</li>`).join("")}</ul>` : ""}<a class="btn btn-outline btn-sm" href="${page("guides/" + g.id + ".html")}">Read guide</a></div></article>`;
   }
   const explorerModes = {
     Freshwater: {
@@ -481,7 +481,7 @@
       .map((row) => {
         const p = allProducts.find((x) => x.id === row.id);
         if (!p) return "";
-        return `<article class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><span class="results-info">${money(p.price)} each</span></div>${compact ? "" : `<div><div class="qty"><button data-cart="minus" data-id="${p.id}" aria-label="Decrease quantity">−</button><strong>${row.qty}</strong><button data-cart="plus" data-id="${p.id}" aria-label="Increase quantity">+</button></div><button class="btn btn-sm" data-cart="remove" data-id="${p.id}">Remove</button></div>`}</article>`;
+        return `<article class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><span class="results-info">${money(p.price)} each</span></div>${compact ? "" : `<div class="cart-controls"><div class="qty"><button data-cart="minus" data-id="${p.id}" aria-label="Decrease quantity">−</button><strong>${row.qty}</strong><button data-cart="plus" data-id="${p.id}" aria-label="Increase quantity">+</button></div><button class="btn btn-outline btn-sm cart-remove" data-cart="remove" data-id="${p.id}" aria-label="Remove ${p.name} from bag">Remove</button></div>`}</article>`;
       })
       .join("");
   }

@@ -18,6 +18,7 @@
 }
 [data-theme="dark"] .site-header {
   background: rgba(7, 25, 35, 0.88);
+  border-bottom-color: #31515f;
 }
 [data-theme="dark"] .logo-light {
   display: none;
@@ -27,7 +28,48 @@
 }
 [data-theme="dark"] .badge {
   background: rgba(7, 25, 35, 0.9);
+  border: 1px solid #476a79;
   color: #fff;
+}
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] .nav-toggle:hover,
+[data-theme="dark"] .nav-item.open .nav-toggle {
+  background: #17495e;
+  color: #dff7fd;
+}
+[data-theme="dark"] .dropdown a:hover {
+  background: #183f50;
+  color: #9be2f3;
+}
+[data-theme="dark"] .btn-icon,
+[data-theme="dark"] .direction-toggle {
+  border-color: #355968;
+  background: #102f3e;
+  color: #f2f8fa;
+}
+[data-theme="dark"] .btn-outline {
+  border-color: #416574;
+  color: #f2f8fa;
+}
+[data-theme="dark"] .btn-outline:hover {
+  border-color: #70c8e5;
+  background: #183f50;
+  color: #dff7fd;
+}
+[data-theme="dark"] .chip,
+[data-theme="dark"] .guide-meta span {
+  border-color: #315565;
+  background: #183f50;
+  color: #8edcf1;
+}
+[data-theme="dark"] .guide-meta b {
+  color: #b9cbd2;
+}
+[data-theme="dark"] .card,
+[data-theme="dark"] .species-card,
+[data-theme="dark"] .cart-item {
+  border-color: #31515f;
 }
 [data-theme="dark"] .species-card {
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
@@ -49,7 +91,21 @@
   background: #183645;
 }
 [data-theme="dark"] .hotspot-card {
-  background: rgba(16, 41, 54, 0.96);
+  background: rgba(12, 42, 55, 0.97);
+  border-color: #416779;
+  color: #eaf8fb;
+}
+[data-theme="dark"] .hotspot-card strong {
+  color: #fff;
+}
+[data-theme="dark"] .qty button {
+  border-color: #416574;
+  background: #102f3e;
+  color: #f2f8fa;
+}
+[data-theme="dark"] .qty button:hover {
+  border-color: #70c8e5;
+  background: #183f50;
 }
 [data-theme="dark"] .filter-btn.active,
 [data-theme="dark"] .tab.active {
