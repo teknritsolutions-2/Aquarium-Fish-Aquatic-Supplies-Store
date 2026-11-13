@@ -25,12 +25,24 @@
       leaf: '<path d="M5 20C5 10 10 4 20 4c0 10-6 15-15 16Z"/><path d="M6 18 17 7"/>',
       tool: '<path d="m14 6 4-4 4 4-4 4M3 21l10-10 4 4L7 21H3Z"/>',
       book: '<path d="M4 5c3-1 6 0 8 2v14c-2-2-5-3-8-2V5Zm16 0c-3-1-6 0-8 2v14c2-2 5-3 8-2V5Z"/>',
+      instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
+      facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
+      youtube: '<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>',
+      twitter: '<path d="M4 4l6.5 7.5L4 20h2.5l5.2-6 4.8 6H20l-6.8-8L19.5 4H17l-4.7 5.5L7.8 4H4z"/>',
+      pinterest: '<path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.1-2.1.1-3l1.2-5s-.3-.6-.3-1.6c0-1.5.9-2.7 2-2.7 1 0 1.4.7 1.4 1.6 0 1-.6 2.4-1 3.7-.3 1.1.6 2 1.7 2 2 0 3.5-2.1 3.5-5.2 0-2.7-1.9-4.6-4.7-4.6-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .8 2.6.1.1.1.2 0 .4l-.3 1.2c-.1.2-.2.3-.4.2-1.4-.7-2.3-2.7-2.3-4.4 0-3.6 2.6-6.9 7.6-6.9 4 0 7.1 2.9 7.1 6.7 0 4-2.5 7.2-6 7.2-1.2 0-2.3-.6-2.6-1.3l-.7 2.8c-.3 1-.9 2.3-1.4 3.1A10 10 0 1 0 12 2z"/>',
+      mapPin: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+      clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+      phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+      mail: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+      direction: '<polygon points="3 11 22 2 13 21 11 13 3 11"/>',
+      shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+      sparkle: '<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>',
     })[name];
   const svg = (n) =>
     `<svg viewBox="0 0 24 24" aria-hidden="true">${icon(n)}</svg>`;
   const fishUrl = (f) => page("fish-details.html?id=" + f.id);
-  const productUrl = (p) => page("product-details.html?id=" + p.id);
-  const equipmentById = (id) => D.equipment.find((item) => item.id === id);
+  const productUrl = (p) => (p && p.id ? page("product-details.html?id=" + p.id) : page("equipment.html"));
+  const equipmentById = (id) => D.equipment.find((item) => item.id === id || (id === "canister-200" && item.id === "hob-75"));
   const navigation = [
     {
       label: "Home",
@@ -48,30 +60,77 @@
   ];
   const logo = (decorative = false) =>
     `<span class="brand-lockup"><img class="brand-logo logo-light" src="${base}assets/brand/logo.svg" alt="${decorative ? "" : "BlueCurrent Aquatics"}"><img class="brand-logo logo-dark" src="${base}assets/brand/logo-white.svg" alt="${decorative ? "" : "BlueCurrent Aquatics"}"></span>`;
-  const desktopNavigation = () =>
-    navigation
-      .map((item) =>
-        item.children
-          ? `<div class="nav-item"><button class="nav-toggle" aria-expanded="false">${item.label} <span aria-hidden="true">▾</span></button><div class="dropdown">${item.children.map((child) => `<a href="${page(child.href)}">${child.label}</a>`).join("")}</div></div>`
-          : `<a class="nav-link" href="${page(item.href)}">${item.label}</a>`,
-      )
+  const getActiveState = () => {
+    const p = (document.body && document.body.dataset && document.body.dataset.page) || "";
+    const path = location.pathname.toLowerCase();
+    return {
+      isHome1: p === "home" || path.endsWith("/index.html") || (path.endsWith("/") && !path.includes("home2")),
+      isHome2: p === "home2" || path.endsWith("/home2.html") || path.includes("home2"),
+      isAbout: p === "about" || path.includes("about"),
+      isFish: p === "fish-catalog" || p === "fish-details" || path.includes("fish-"),
+      isPlants: p === "plants" || path.includes("aquatic-plants"),
+      isEquipment: p === "equipment" || p === "product-details" || path.includes("equipment") || path.includes("product-details"),
+      isGuides: p === "care-guides" || p === "guide" || path.includes("care-guides") || path.includes("/guides/"),
+      isContact: p === "contact" || path.includes("contact"),
+    };
+  };
+  const isNavActive = (href, a) => {
+    if (href === "index.html") return a.isHome1;
+    if (href === "home2.html") return a.isHome2;
+    if (href === "about.html") return a.isAbout;
+    if (href === "fish-catalog.html") return a.isFish;
+    if (href === "aquatic-plants.html") return a.isPlants;
+    if (href === "equipment.html") return a.isEquipment;
+    if (href === "care-guides.html") return a.isGuides;
+    if (href === "contact.html") return a.isContact;
+    return false;
+  };
+  const desktopNavigation = () => {
+    const a = getActiveState();
+    return navigation
+      .map((item) => {
+        if (item.children) {
+          const isParentActive = item.children.some((child) => isNavActive(child.href, a));
+          return `<div class="nav-item ${isParentActive ? "active" : ""}"><button class="nav-toggle ${isParentActive ? "active" : ""}" aria-expanded="false">${item.label} <span aria-hidden="true">▾</span></button><div class="dropdown">${item.children
+            .map((child) => {
+              const isChildActive = isNavActive(child.href, a);
+              return `<a class="${isChildActive ? "active" : ""}" ${isChildActive ? 'aria-current="page"' : ""} href="${page(child.href)}">${child.label}</a>`;
+            })
+            .join("")}</div></div>`;
+        }
+        const isActive = isNavActive(item.href, a);
+        return `<a class="nav-link ${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""} href="${page(item.href)}">${item.label}</a>`;
+      })
       .join("");
-  const mobileNavigation = () =>
-    navigation
-      .map((item) =>
-        item.children
-          ? `<details class="mobile-home"><summary>${item.label}</summary>${item.children.map((child) => `<a href="${page(child.href)}">${child.label}</a>`).join("")}</details>`
-          : `<a href="${page(item.href)}">${item.label}</a>`,
-      )
+  };
+  const mobileNavigation = () => {
+    const a = getActiveState();
+    return navigation
+      .map((item) => {
+        if (item.children) {
+          const isParentActive = item.children.some((child) => isNavActive(child.href, a));
+          return `<details class="mobile-home" ${isParentActive ? "open" : ""}><summary class="${isParentActive ? "active" : ""}">${item.label}</summary>${item.children
+            .map((child) => {
+              const isChildActive = isNavActive(child.href, a);
+              return `<a class="${isChildActive ? "active" : ""}" ${isChildActive ? 'aria-current="page"' : ""} href="${page(child.href)}">${child.label}</a>`;
+            })
+            .join("")}</details>`;
+        }
+        const isActive = isNavActive(item.href, a);
+        return `<a class="${isActive ? "active" : ""}" ${isActive ? 'aria-current="page"' : ""} href="${page(item.href)}">${item.label}</a>`;
+      })
       .join("");
+  };
   function header() {
     return `<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container nav-wrap"><a class="brand" href="${page("index.html")}">${logo()}</a><nav class="main-nav" aria-label="Primary">${desktopNavigation()}</nav><div class="nav-tools"><button class="btn-icon search-trigger" aria-label="Open search">${svg("search")}</button><button class="btn-icon bag-trigger" aria-label="Open shopping bag, empty">${svg("bag")}<span class="bag-count" aria-hidden="true" hidden></span></button><button class="btn-icon theme-toggle" aria-label="Switch color theme">${svg("sun")}</button><button class="direction-toggle dir-toggle" type="button" aria-label="Switch to right-to-left layout"><span data-direction-label>RTL</span></button><button class="btn-icon mobile-toggle" aria-label="Open menu">${svg("menu")}</button></div></div></header><div class="mobile-drawer" aria-hidden="true"><div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Navigation"><div class="mobile-head">${logo(true)}<button class="btn-icon mobile-close" aria-label="Close menu">${svg("close")}</button></div><nav class="mobile-nav" aria-label="Mobile primary">${mobileNavigation()}</nav><div class="mobile-controls"><button class="btn btn-outline search-trigger">${svg("search")} Search</button><button class="btn btn-outline theme-toggle">${svg("sun")} Theme</button><button class="direction-toggle dir-toggle" type="button" aria-label="Switch to right-to-left layout"><span data-direction-label>RTL</span></button></div></div></div>`;
   }
   function footer() {
-    return `<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img src="${base}assets/brand/logo-white.svg" alt="BlueCurrent Aquatics"><p>A calm, practical marketplace for aquarium fish discovery, aquatic plants, equipment and responsible setup guidance.</p></div><div class="footer-col"><h3>Explore</h3><a href="${page("index.html")}">Home 1</a><a href="${page("home2.html")}">Home 2</a><a href="${page("fish-catalog.html")}">Fish Catalog</a><a href="${page("aquatic-plants.html")}">Aquatic Plants</a><a href="${page("equipment.html")}">Equipment</a></div><div class="footer-col"><h3>Learn</h3><a href="${page("care-guides.html")}">Care Guides</a><a href="${page("tank-planner.html")}">Tank Planner</a><a href="${page("faq.html")}">FAQ</a><a href="${page("about.html")}">About</a></div><div class="footer-col"><h3>Support</h3><a href="${page("contact.html")}">Contact</a><a href="${page("contact.html?type=special-order")}">Special Orders</a><a href="${page("shipping-returns.html")}">Shipping & Returns</a><a href="${page("contact.html#location")}">Store Location</a></div><div class="footer-col"><h3>Legal</h3><a href="${page("privacy.html")}">Privacy</a><a href="${page("terms.html")}">Terms</a></div></div><div class="footer-bottom"><span>© 2026 BlueCurrent Aquatics. All rights reserved.</span><span>Responsible fishkeeping begins with research and a cycled aquarium.</span></div></div></footer><button class="btn-icon back-top" aria-label="Back to top">${svg("top")}</button><div class="search-overlay" aria-hidden="true"><div class="search-panel" role="dialog" aria-modal="true" aria-label="Site search"><div class="overlay-head"><input class="search-input" type="search" placeholder="Search fish, plants, equipment and guides…" aria-label="Search"><button class="btn-icon overlay-close" aria-label="Close search">${svg("close")}</button></div><div class="search-results"><p class="results-info">Start typing to explore the catalog.</p></div></div></div><div class="cart-drawer" aria-hidden="true"><div class="drawer-panel"><div class="mobile-head"><h2>Your bag</h2><button class="btn-icon cart-close" aria-label="Close bag">${svg("close")}</button></div><div class="drawer-cart"></div><a class="btn btn-primary" style="width:100%;margin-top:16px" href="${page("cart.html")}">View bag</a><a class="btn btn-outline" style="width:100%;margin-top:8px" href="${page("equipment.html")}">Continue shopping</a></div></div><div class="toast" role="status" aria-live="polite"></div>`;
+    return `<footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="footer-brand-link" href="${page("index.html")}" aria-label="BlueCurrent Aquatics Home"><img src="${base}assets/brand/logo-white.svg" alt="BlueCurrent Aquatics"></a><p>A calm, practical marketplace for aquarium fish discovery, aquatic plants, equipment and responsible setup guidance.</p><div class="footer-socials" aria-label="Official Social Platforms"><a href="https://instagram.com/bluecurrentaquatics" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow BlueCurrent on Instagram">${svg("instagram")}</a><a href="https://facebook.com/bluecurrentaquatics" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow BlueCurrent on Facebook">${svg("facebook")}</a><a href="https://youtube.com/@bluecurrentaquatics" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to BlueCurrent on YouTube">${svg("youtube")}</a><a href="https://x.com/bluecurrentaqua" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow BlueCurrent on X">${svg("twitter")}</a><a href="https://pinterest.com/bluecurrentaquatics" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Follow BlueCurrent on Pinterest">${svg("pinterest")}</a></div></div><div class="footer-col"><h3>Explore</h3><a href="${page("index.html")}">Home 1</a><a href="${page("home2.html")}">Home 2</a><a href="${page("fish-catalog.html")}">Fish Catalog</a><a href="${page("aquatic-plants.html")}">Aquatic Plants</a><a href="${page("equipment.html")}">Equipment</a></div><div class="footer-col"><h3>Learn</h3><a href="${page("care-guides.html")}">Care Guides</a><a href="${page("tank-planner.html")}">Tank Planner</a><a href="${page("faq.html")}">FAQ</a><a href="${page("about.html")}">About</a></div><div class="footer-col"><h3>Support</h3><a href="${page("contact.html")}">Contact</a><a href="${page("contact.html?type=special-order")}">Special Orders</a><a href="${page("shipping-returns.html")}">Shipping & Returns</a><a href="${page("contact.html#location-map")}">Store Location</a></div><div class="footer-col"><h3>Legal</h3><a href="${page("privacy.html")}">Privacy</a><a href="${page("terms.html")}">Terms</a></div></div><div class="footer-bottom"><span>© 2026 <a class="footer-copy-link" href="${page("index.html")}">BlueCurrent Aquatics</a>. All rights reserved.</span><span>Responsible fishkeeping begins with research and a cycled aquarium.</span></div></div></footer><button class="btn-icon back-top" aria-label="Back to top">${svg("top")}</button><div class="search-overlay" aria-hidden="true"><div class="search-panel" role="dialog" aria-modal="true" aria-label="Site search"><div class="overlay-head"><input class="search-input" type="search" placeholder="Search fish, plants, equipment and guides…" aria-label="Search"><button class="btn-icon overlay-close" aria-label="Close search">${svg("close")}</button></div><div class="search-results"><p class="results-info">Start typing to explore the catalog.</p></div></div></div><div class="cart-drawer" aria-hidden="true"><div class="drawer-panel"><div class="mobile-head"><h2>Your bag</h2><button class="btn-icon cart-close" aria-label="Close bag">${svg("close")}</button></div><div class="drawer-cart"></div><a class="btn btn-primary" style="width:100%;margin-top:16px" href="${page("cart.html")}">View bag</a><a class="btn btn-outline" style="width:100%;margin-top:8px" href="${page("equipment.html")}">Continue shopping</a></div></div><div class="toast" role="status" aria-live="polite"></div>`;
   }
-  const pageHero = (ey, title, desc) =>
-    `<section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="${page("index.html")}">Home</a><span>/</span><span>${ey}</span></div><h1>${title}</h1><p>${desc}</p></div></section>`;
+  const pageHero = (ey, title, desc, bgImg = "") => {
+    const bg = bgImg || asset("images/home/hero-reef.jpg");
+    return `<section class="page-hero" style="--hero-bg:url('${bg}')"><div class="page-hero-bg" aria-hidden="true"></div><div class="container page-hero-content"><div class="breadcrumbs"><a href="${page("index.html")}">Home</a><span>/</span><span>${ey}</span></div><h1>${title}</h1><p>${desc}</p></div></section>`;
+  };
   function fishCard(f, badge = "") {
     return `<article class="species-card" data-water="${f.water}" data-planted="${f.planted}"><div class="species-media"><img src="${f.image}" alt="Aquarium photography representing ${f.name}" loading="lazy"><span class="water-label">${f.water}</span>${badge ? `<span class="badge">${badge}</span>` : ""}</div><div class="species-body"><div class="species-heading"><div><h3>${f.name}</h3><div class="scientific">${f.scientific}</div></div><span class="availability">${f.available}</span></div><dl class="care-summary"><div><dt>Care</dt><dd>${f.care}</dd></div><div><dt>Minimum tank</dt><dd>${f.tank} L</dd></div><div><dt>Planted</dt><dd>${f.planted ? "Suitable" : "Check profile"}</dd></div></dl><div class="species-commerce"><span class="price">From ${money(f.price)}</span><span>Availability by enquiry</span></div><div class="species-actions"><a class="btn btn-primary btn-sm" href="${fishUrl(f)}">View care profile</a><a class="text-link" href="${page("contact.html?item=" + encodeURIComponent(f.name) + "&category=" + f.water)}">Check availability ${svg("arrow")}</a></div></div></article>`;
   }
@@ -166,30 +225,328 @@
     .join("")}</div></div></section></main>`;
   }
   function home2() {
-    return `<main id="main"><section class="editorial-hero"><img src="${asset("images/home/planted-aquarium.jpg")}" alt="Lush planted aquascape"><div class="container"><span class="eyebrow" style="color:#b6e0ee">Aquascape studio</span><h1>Compose a living landscape, one thoughtful layer at a time.</h1><p>An editorial path through glass, light, plants and inhabitants—with everything connected to the store.</p><a class="btn btn-primary" href="#scene">Explore the setup</a></div></section><section class="section" id="scene"><div class="container"><div class="section-head"><div><span class="eyebrow">Shop the scene</span><h2>A complete planted foundation</h2><p class="lede">Select a hotspot to explore the core equipment behind this calm freshwater composition.</p></div></div><div class="scene"><img src="${asset("images/home/planted-aquarium.jpg")}" alt="Complete planted aquarium scene"><a class="hotspot" style="left:17%;top:28%" href="${productUrl(equipmentById("plant-light-60"))}" aria-label="View plant light">1</a><div class="hotspot-card" style="left:20%;top:20%"><strong>Planted aquarium light</strong><br>Purposeful lighting for plant growth</div><a class="hotspot" style="right:15%;top:51%" href="${productUrl(equipmentById("hob-75"))}" aria-label="View canister filter">2</a><div class="hotspot-card" style="right:18%;top:43%"><strong>External canister filter</strong><br>Multi-stage external filtration</div><a class="hotspot" style="left:43%;bottom:13%" href="${productUrl(equipmentById("rimless-60"))}" aria-label="View aquarium">3</a><div class="hotspot-card" style="left:47%;bottom:15%"><strong>Fitted glass aquarium</strong><br>Configured 60 litre display</div></div></div></section><section class="section immersive"><div class="container explorer"><div><span class="eyebrow" style="color:#b6e0ee">Three directions</span><h2>Choose the atmosphere first.</h2><p>Your tank type changes the livestock, equipment and setup sequence. Explore a tailored starting point.</p><div class="tabs explorer-tabs"><button class="tab active" data-mode="Freshwater">Freshwater</button><button class="tab" data-mode="Marine">Marine</button><button class="tab" data-mode="Planted">Planted</button></div><div class="explorer-copy"></div></div>${explorerImage()}</div></section><section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">The arrival edit</span><h2>Newly added, gallery arranged</h2></div></div><div class="grid grid-3">${D.fish
-      .slice()
-      .sort((a, b) => b.addedAt.localeCompare(a.addedAt))
-      .slice(0, 6)
-      .map((f, i) => fishCard(f, i < 2 ? "New listing" : ""))
-      .join(
-        "",
-      )}</div></div></section><section class="section feature-strip"><div class="container"><div class="section-head merchandising-head"><div><span class="eyebrow">Plants as architecture</span><h2>Build depth with leaf, line and negative space.</h2><p class="lede">Start with placement and maintenance appetite, then choose light and CO₂ support.</p></div><a class="btn btn-primary" href="${page("aquatic-plants.html")}">Explore aquatic plants</a></div><div class="grid grid-4 merchandising-row">${D.plants.slice(4, 8).map(plantCard).join("")}</div></div></section><section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Species study</span><h2>Scale, movement and temperament</h2></div></div><div class="species-tile-grid species-tile-grid-four">${[D.fish[0], D.fish[4], D.fish[10], D.fish[12]].map(speciesTile).join("")}</div></div></section><section class="section immersive"><div class="container"><div class="section-head merchandising-head"><div><span class="eyebrow" style="color:#b6e0ee">System thinking</span><h2>Good equipment disappears into the experience.</h2><p>Quiet flow, stable temperature and purposeful light support the display without stealing attention from it.</p></div><a class="btn btn-secondary" href="${page("equipment.html")}">Build your system</a></div><div class="grid grid-4 merchandising-row">${D.equipment.slice(0, 4).map(equipmentCard).join("")}</div></div></section><section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Studio notes</span><h2>Read, plan, then begin.</h2></div><a class="btn btn-outline" href="${page("contact.html?type=setup-help")}">Ask about a setup</a></div><div class="grid grid-3">${D.guides
-      .slice(2, 5)
-      .map((g) => guideCard(g))
-      .join("")}</div></div></section></main>`;
+    return `<main id="main">
+      <!-- 1. Editorial Studio Hero -->
+      <section class="editorial-hero">
+        <img src="${asset("images/home/planted-aquarium.jpg")}" alt="Lush planted aquascape display">
+        <div class="container">
+          <span class="eyebrow" style="color:#b6e0ee">Aquascape Atelier & Botanical Living Art</span>
+          <h1>The Art of Living Underwater Architecture.</h1>
+          <p>Where botanical precision meets minimalist stone. Explore curated layout styles, interact with our studio setup, and shop precision equipment engineered for biological equilibrium.</p>
+          <div class="studio-stats-bar">
+            <div class="studio-stat"><strong>04</strong><span>Master Layout Styles</span></div>
+            <div class="studio-stat"><strong>100%</strong><span>Tissue-Cultured Flora</span></div>
+            <div class="studio-stat"><strong>Optiwhite</strong><span>Low-Iron Glass Purity</span></div>
+            <div class="studio-stat"><strong>CO₂</strong><span>Pressurized Injection Precision</span></div>
+          </div>
+          <div class="hero-actions" style="margin-top:28px">
+            <a class="btn btn-primary" href="#styles">Explore Master Styles</a>
+            <a class="btn btn-secondary" href="#scene">Interactive Setup Studio</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Master Aquascaping Styles (Dedicated to Home 2) -->
+      <section class="section" id="styles">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow">Aesthetic Foundations</span>
+              <h2>Four Iconic Layout Philosophies</h2>
+              <p class="lede" style="max-width:760px;margin-inline:auto">Every great aquascape begins with an intentional visual discipline. Discover the timeless styles that define modern aquatic design.</p>
+            </div>
+          </div>
+          <div class="grid grid-2 style-grid">
+            <div class="style-card">
+              <div class="style-media">
+                <img src="${asset("images/plants/monte-carlo.jpg")}" alt="Iwagumi style aquascape with carpet">
+                <span class="style-badge">Minimalist Zen</span>
+              </div>
+              <div class="style-body">
+                <h3>Iwagumi Style</h3>
+                <p>Derived from Japanese stone gardening, Iwagumi focuses on odd-numbered rock formations (Oyaishi master stone supported by Fukuishi and Soeishi) surrounded by a continuous green carpet.</p>
+                <div class="style-meta">
+                  <div><strong>Key Flora:</strong> Monte Carlo, Dwarf Hairgrass</div>
+                  <div><strong>Hardscape:</strong> Seiryu Stone, Dragon Stone</div>
+                  <div><strong>Livestock:</strong> Cardinal Tetra, Celestial Pearl Danio</div>
+                </div>
+                <a class="text-link" href="${page("aquatic-plants.html")}">Explore carpeting plants ${svg("arrow")}</a>
+              </div>
+            </div>
+            <div class="style-card">
+              <div class="style-media">
+                <img src="${asset("images/plants/anubias-nana.jpg")}" alt="Nature aquarium style with roots and moss">
+                <span class="style-badge">Organic Harmony</span>
+              </div>
+              <div class="style-body">
+                <h3>Nature Aquarium Style</h3>
+                <p>Pioneered by Takashi Amano, this style recreates terrestrial forests and wild streams underwater using weathered driftwood roots, clinging mosses, and organic asymmetrical balance.</p>
+                <div class="style-meta">
+                  <div><strong>Key Flora:</strong> Anubias Nana, Java Fern, Bucephalandra</div>
+                  <div><strong>Hardscape:</strong> Driftwood Branches, River Pebbles</div>
+                  <div><strong>Livestock:</strong> Harlequin Rasbora, Corydoras Panda</div>
+                </div>
+                <a class="text-link" href="${page("guides/planted-tank-basics.html")}">Read planted scape guide ${svg("arrow")}</a>
+              </div>
+            </div>
+            <div class="style-card">
+              <div class="style-media">
+                <img src="${asset("images/plants/rotala-rotundifolia.jpg")}" alt="Dutch style aquarium with dense stem plants">
+                <span class="style-badge">Floral Architecture</span>
+              </div>
+              <div class="style-body">
+                <h3>Dutch Aquascape</h3>
+                <p>The traditional European botanical style emphasizing strict plant variety, color contrast, and geometric planting "streets" without heavy stone or wood hardscapes.</p>
+                <div class="style-meta">
+                  <div><strong>Key Flora:</strong> Rotala Rotundifolia, Cryptocoryne, Wisteria</div>
+                  <div><strong>Key Requirement:</strong> High PAR Light & Stable CO₂</div>
+                  <div><strong>Livestock:</strong> Honey Gourami, Neon Tetra</div>
+                </div>
+                <a class="text-link" href="${page("aquatic-plants.html")}">View background stem plants ${svg("arrow")}</a>
+              </div>
+            </div>
+            <div class="style-card">
+              <div class="style-media">
+                <img src="${asset("images/home/freshwater-aquarium.jpg")}" alt="Jungle biotope aquarium with floating plants">
+                <span class="style-badge">Wild Canopy</span>
+              </div>
+              <div class="style-body">
+                <h3>Jungle Biotope</h3>
+                <p>An untamed aquatic sanctuary celebrating lush vertical growth, floating root curtains, shaded leaf litter, and calm natural water movement.</p>
+                <div class="style-meta">
+                  <div><strong>Key Flora:</strong> Vallisneria, Red Root Floater, Java Moss</div>
+                  <div><strong>Hardscape:</strong> Mangrove Root, Botanical Pods</div>
+                  <div><strong>Livestock:</strong> Angelfish, Kuhli Loach, Discus</div>
+                </div>
+                <a class="text-link" href="${page("fish-catalog.html")}">Browse community fish ${svg("arrow")}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Interactive Scene Studio (Hotspots) -->
+      <section class="section" id="scene">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Studio Showcase</span>
+              <h2>Interactive Living Setup: The 60P Studio Display</h2>
+              <p class="lede">Explore the precision hardware integrated into our flagship planted scape. Select each hotspot to inspect specifications and components.</p>
+            </div>
+          </div>
+          <div class="scene">
+            <img src="${asset("images/home/planted-aquarium.jpg")}" alt="Complete planted aquarium scene">
+            <a class="hotspot" style="left:17%;top:28%" href="${productUrl(equipmentById("plant-light-60"))}" aria-label="View plant light">1</a>
+            <div class="hotspot-card" style="left:20%;top:20%">
+              <strong>High-PAR Plant Light</strong><br>
+              Full-spectrum RGB lighting for intense photosynthesis and crimson hues.<br>
+              <a href="${productUrl(equipmentById("plant-light-60"))}">View specifications ${svg("arrow")}</a>
+            </div>
+            <a class="hotspot" style="right:15%;top:51%" href="${productUrl(equipmentById("hob-75"))}" aria-label="View canister filter">2</a>
+            <div class="hotspot-card" style="right:18%;top:43%">
+              <strong>External Canister Filter</strong><br>
+              High biological volume filtration with ultra-silent glass lily pipes.<br>
+              <a href="${productUrl(equipmentById("hob-75"))}">View filter details ${svg("arrow")}</a>
+            </div>
+            <a class="hotspot" style="left:43%;bottom:13%" href="${productUrl(equipmentById("rimless-60"))}" aria-label="View aquarium">3</a>
+            <div class="hotspot-card" style="left:47%;bottom:15%">
+              <strong>Rimless Optiwhite Tank</strong><br>
+              60-litre ultra-clear 91% light transmittance low-iron glass display.<br>
+              <a href="${productUrl(equipmentById("rimless-60"))}">View aquarium ${svg("arrow")}</a>
+            </div>
+            <a class="hotspot" style="right:32%;bottom:22%" href="${productUrl(equipmentById("aquascape-tools"))}" aria-label="View tools">4</a>
+            <div class="hotspot-card" style="right:35%;bottom:24%">
+              <strong>Pro Scaping Toolset</strong><br>
+              Curved spring scissors and pinsettes for surgical pruning and planting.<br>
+              <a href="${productUrl(equipmentById("aquascape-tools"))}">View tools ${svg("arrow")}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Anatomy of an Aquascape (4 Layers Breakdown) -->
+      <section class="section immersive" id="anatomy">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow" style="color:#b6e0ee">Structural Principles</span>
+              <h2>Anatomy of an Aquascape: Four Spatial Layers</h2>
+              <p class="lede" style="max-width:760px;margin-inline:auto;color:#d5edf4">True visual depth in glass comes from arranging hardscape and flora by vertical and horizontal perspective.</p>
+            </div>
+          </div>
+          <div class="grid grid-4 anatomy-grid">
+            <div class="anatomy-step">
+              <span class="anatomy-num">01</span>
+              <h3>Hardscape Core</h3>
+              <span class="anatomy-badge">Foundation Layer</span>
+              <p>Volcanic mineral aquasoil sloped from 3cm in front to 10cm at the rear. Anchor stones and roots are placed along the Golden Ratio to form the enduring backbone.</p>
+            </div>
+            <div class="anatomy-step">
+              <span class="anatomy-num">02</span>
+              <h3>Foreground Carpet</h3>
+              <span class="anatomy-badge">Depth & Scale</span>
+              <p>Micro-carpeting flora (Monte Carlo, Dwarf Hairgrass) planted in 1cm plugs. Locks nutrients into the substrate and establishes immediate visual expansiveness.</p>
+            </div>
+            <div class="anatomy-step">
+              <span class="anatomy-num">03</span>
+              <h3>Midground Transition</h3>
+              <span class="anatomy-badge">Texture & Contrast</span>
+              <p>Epiphytic plants (Anubias Nana, Cryptocoryne, Bucephalandra) secured into wood forks and rock crevices to soften transitions and mask hardscape edges.</p>
+            </div>
+            <div class="anatomy-step">
+              <span class="anatomy-num">04</span>
+              <h3>Background Canopy</h3>
+              <span class="anatomy-badge">Vertical Movement</span>
+              <p>Rapidly growing stem plants (Rotala, Vallisneria) that absorb excess water column nutrients, oxygenate the water, and frame the open swimming zone.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Curated Plant Palettes -->
+      <section class="section" id="palettes">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Studio Palettes</span>
+              <h2>Curated Flora Combinations</h2>
+              <p class="lede">Tested botanical groupings selected for harmonized light requirements, growth rates, and fertilization compatibility.</p>
+            </div>
+            <a class="btn btn-outline" href="${page("aquatic-plants.html")}">View all plants</a>
+          </div>
+          <div class="grid grid-3 palette-grid">
+            <div class="palette-card">
+              <div class="palette-head">
+                <span class="chip">Beginner Friendly</span>
+                <h3>The Low-Tech Sanctuary</h3>
+              </div>
+              <p>Zero CO₂ required. Resilient, shade-tolerant species that thrive in ambient low light with minimal maintenance.</p>
+              <ul class="palette-flora-list">
+                <li><span>Anubias Nana</span><strong>Midground Rhizome</strong></li>
+                <li><span>Java Fern</span><strong>Rock Attachment</strong></li>
+                <li><span>Java Moss</span><strong>Wood Weeping</strong></li>
+                <li><span>Cryptocoryne Wendtii</span><strong>Root Feeder</strong></li>
+              </ul>
+              <a class="btn btn-primary btn-sm" href="${page("aquatic-plants.html")}">Shop this palette</a>
+            </div>
+            <div class="palette-card">
+              <div class="palette-head">
+                <span class="chip" style="background:#4a1520;color:#ff9eaf;border-color:#772635">High-Tech Dutch</span>
+                <h3>High-Energy Crimson Forest</h3>
+              </div>
+              <p>Demands pressurized CO₂ and intensive PAR lighting. Delivers deep scarlet, magenta, and emerald stem contrasts.</p>
+              <ul class="palette-flora-list">
+                <li><span>Rotala Rotundifolia</span><strong>Background Crimson</strong></li>
+                <li><span>Red Root Floater</span><strong>Surface Ruby</strong></li>
+                <li><span>Monte Carlo</span><strong>Lush Lime Carpet</strong></li>
+                <li><span>Dwarf Hairgrass</span><strong>Micro Lawn</strong></li>
+              </ul>
+              <a class="btn btn-primary btn-sm" href="${page("aquatic-plants.html")}">Shop this palette</a>
+            </div>
+            <div class="palette-card">
+              <div class="palette-head">
+                <span class="chip">Compact Nano</span>
+                <h3>Zen Desktop Scape</h3>
+              </div>
+              <p>Perfect for 30–45L cube aquariums. Clean, slow-growing botanical forms that maintain crisp proportion for months.</p>
+              <ul class="palette-flora-list">
+                <li><span>Bucephalandra</span><strong>Focal Rhizome</strong></li>
+                <li><span>Monte Carlo</span><strong>Foreground Pad</strong></li>
+                <li><span>Vallisneria</span><strong>Slender Background</strong></li>
+                <li><span>Anubias Nana</span><strong>Accent Crevice</strong></li>
+              </ul>
+              <a class="btn btn-primary btn-sm" href="${page("aquatic-plants.html")}">Shop this palette</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Aquascaper's Equipment Suite -->
+      <section class="section feature-strip">
+        <div class="container">
+          <div class="section-head merchandising-head">
+            <div>
+              <span class="eyebrow">Precision Equipment</span>
+              <h2>The Quiet Machinery of a Thriving Scape</h2>
+              <p class="lede">High-performance filtration, calibrated heating, and optical glass that support the display without stealing focus.</p>
+            </div>
+            <a class="btn btn-primary" href="${page("equipment.html")}">Browse all equipment</a>
+          </div>
+          <div class="grid grid-4 merchandising-row">
+            ${[
+              equipmentById("plant-light-60"),
+              equipmentById("hob-75"),
+              equipmentById("rimless-60"),
+              equipmentById("aquascape-tools"),
+            ]
+              .filter(Boolean)
+              .map(equipmentCard)
+              .join("")}
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Golden Rules of Aquascaping (Studio Journal) -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow">Studio Journal</span>
+              <h2>Three Golden Rules of Aquascape Balance</h2>
+              <p class="lede" style="max-width:720px;margin-inline:auto">Keep these principles at the center of your layout to avoid common hurdles and ensure long-term stability.</p>
+            </div>
+          </div>
+          <div class="grid grid-3 journal-grid">
+            <div class="journal-card">
+              <div class="journal-num">01</div>
+              <h3>The Golden Ratio (1:1.618)</h3>
+              <p>Avoid placing your primary hardscape stone or wood stump dead-center. Shifting the focal point to roughly one-third across the tank creates immediate organic tension and eye movement.</p>
+            </div>
+            <div class="journal-card">
+              <div class="journal-num">02</div>
+              <h3>The Equilibrium Triangle</h3>
+              <p>Light, CO₂, and macronutrients must be balanced in lockstep. Boosting light without adequate carbon and fertilizer simply fuels opportunistic algae, not plant growth.</p>
+            </div>
+            <div class="journal-card">
+              <div class="journal-num">03</div>
+              <h3>Patience in Bacterial Colonization</h3>
+              <p>Allow the biological filter and beneficial bacteria 3 to 4 weeks to stabilize before introducing sensitive livestock. Clean water chemistry is the ultimate preserver of delicate aquatic life.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Bespoke Consultation & Commissioning -->
+      <section class="section" style="padding-top:0">
+        <div class="container">
+          <div class="commission-card">
+            <div class="commission-content">
+              <span class="eyebrow" style="color:#b6e0ee">Custom Scape Atelier</span>
+              <h2>Ready to Design a Custom Living Aquascape?</h2>
+              <p class="lede">From curated hardscape selection and bespoke rimless tanks to complete on-site installation and water chemistry conditioning, our master scapers bring your vision to life.</p>
+              <div class="cta-pair" style="margin-top:24px">
+                <a class="btn btn-secondary" href="${page("contact.html?type=setup-help")}">Book Setup Consultation</a>
+                <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.3)" href="${page("tank-planner.html")}">Launch Tank Planner</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>`;
   }
   function fishCatalog() {
-    return `<main id="main">${pageHero("Fish Catalog", "Find a species that fits the aquarium—not just the mood.", "Browse freshwater and marine fish using practical care filters. Planted-tank-friendly indicates suitability, not guaranteed compatibility.")}<section class="section"><div class="container"><div class="toolbar"><div><strong class="catalog-count">${D.fish.length} species</strong><p class="results-info">Live-animal availability is confirmed by enquiry.</p></div><button class="btn btn-outline filter-toggle" aria-expanded="false">Show filters</button><select id="fish-sort" aria-label="Sort fish"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="low">Price Low to High</option><option value="high">Price High to Low</option><option value="new">Newly Added</option></select></div><div class="catalog-layout"><aside class="filter-panel" aria-label="Fish filters"><div class="filter-mobile-head"><h3>Refine collection</h3><button class="btn-icon filter-close" aria-label="Close filters">${svg("close")}</button></div><div class="field"><label for="fish-search">Search species</label><input id="fish-search" type="search" placeholder="Common or scientific name"></div><div class="field"><label for="water-filter">Water type</label><select id="water-filter"><option value="">All water types</option><option>Freshwater</option><option>Marine</option></select></div><div class="field"><label for="care-filter">Care level</label><select id="care-filter"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="field"><label for="tank-filter">Maximum minimum tank</label><select id="tank-filter"><option value="">Any tank</option><option value="55">Up to 55 L</option><option value="110">Up to 110 L</option><option value="200">Up to 200 L</option><option value="300">Up to 300 L</option></select></div><div class="field"><label class="check-control"><input id="planted-filter" type="checkbox"> <span>Planted-tank-friendly only</span></label></div><button class="btn btn-outline btn-sm" id="clear-filters">Clear filters</button><button class="btn btn-primary filter-apply">Show results</button></aside><div class="grid grid-3 catalog-grid"></div></div></div></section><section class="section-sm feature-strip"><div class="container feature-row"><div class="feature"><strong>Cycle before stocking</strong><span>Establish biological filtration first.</span></div><div class="feature"><strong>Research social needs</strong><span>Schooling and territory both matter.</span></div><div class="feature"><strong>Acclimate carefully</strong><span>Temperature and water chemistry differ.</span></div><div class="feature"><strong>Ask about availability</strong><span>Live stock is never falsely promised.</span></div></div></section></main>`;
+    return `<main id="main">${pageHero("Fish Catalog", "Find a species that fits the aquarium—not just the mood.", "Browse freshwater and marine fish using practical care filters. Planted-tank-friendly indicates suitability, not guaranteed compatibility.", asset("images/home/marine-aquarium.jpg"))}<section class="section"><div class="container"><div class="toolbar"><div><strong class="catalog-count">${D.fish.length} species</strong><p class="results-info">Live-animal availability is confirmed by enquiry.</p></div><button class="btn btn-outline filter-toggle" aria-expanded="false">Show filters</button><select id="fish-sort" aria-label="Sort fish"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="low">Price Low to High</option><option value="high">Price High to Low</option><option value="new">Newly Added</option></select></div><div class="catalog-layout"><aside class="filter-panel" aria-label="Fish filters"><div class="filter-mobile-head"><h3>Refine collection</h3><button class="btn-icon filter-close" aria-label="Close filters">${svg("close")}</button></div><div class="field"><label for="fish-search">Search species</label><input id="fish-search" type="search" placeholder="Common or scientific name"></div><div class="field"><label for="water-filter">Water type</label><select id="water-filter"><option value="">All water types</option><option>Freshwater</option><option>Marine</option></select></div><div class="field"><label for="care-filter">Care level</label><select id="care-filter"><option value="">All levels</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="field"><label for="tank-filter">Maximum minimum tank</label><select id="tank-filter"><option value="">Any tank</option><option value="55">Up to 55 L</option><option value="110">Up to 110 L</option><option value="200">Up to 200 L</option><option value="300">Up to 300 L</option></select></div><div class="field"><label class="check-control"><input id="planted-filter" type="checkbox"> <span>Planted-tank-friendly only</span></label></div><button class="btn btn-outline btn-sm" id="clear-filters">Clear filters</button><button class="btn btn-primary filter-apply">Show results</button></aside><div class="grid grid-3 catalog-grid"></div></div></div></section><section class="section-sm feature-strip"><div class="container feature-row"><div class="feature"><strong>Cycle before stocking</strong><span>Establish biological filtration first.</span></div><div class="feature"><strong>Research social needs</strong><span>Schooling and territory both matter.</span></div><div class="feature"><strong>Acclimate carefully</strong><span>Temperature and water chemistry differ.</span></div><div class="feature"><strong>Ask about availability</strong><span>Live stock is never falsely promised.</span></div></div></section></main>`;
   }
   function plants() {
-    return `<main id="main">${pageHero("Aquatic Plants", "Plant the foreground. Frame the midground. Let the background move.", "Explore adaptable aquatic plants by placement, light, difficulty and growth speed. Growth always depends on water, nutrition and maintenance.")}<section class="section"><div class="container"><div class="toolbar"><div class="filter-row"><button class="filter-btn active" data-plant="All">All plants</button><button class="filter-btn" data-plant="Foreground">Foreground</button><button class="filter-btn" data-plant="Midground">Midground</button><button class="filter-btn" data-plant="Background">Background</button><button class="filter-btn" data-plant="Floating">Floating</button></div><select id="plant-sort" aria-label="Sort plants"><option value="featured">Featured</option><option value="low">Price Low to High</option><option value="high">Price High to Low</option><option value="name">Name A–Z</option></select></div><div class="grid grid-4 plant-grid"></div></div></section><section class="section immersive"><div class="container"><div class="section-head merchandising-head"><div><span class="eyebrow" style="color:#b6e0ee">Plant care, connected</span><h2>Light is only one part of the system.</h2><p>Match plant choice to light, substrate, nutrition and your willingness to prune. CO₂ can improve growth for some species but is not a universal requirement.</p></div><a class="btn btn-secondary" href="${page("guides/planted-tank-basics.html")}">Read planted tank basics</a></div><div class="grid grid-2 plant-support-row">${D.equipment
+    return `<main id="main">${pageHero("Aquatic Plants", "Plant the foreground. Frame the midground. Let the background move.", "Explore adaptable aquatic plants by placement, light, difficulty and growth speed. Growth always depends on water, nutrition and maintenance.", asset("images/home/planted-aquarium.jpg"))}<section class="section"><div class="container"><div class="toolbar"><div class="filter-row"><button class="filter-btn active" data-plant="All">All plants</button><button class="filter-btn" data-plant="Foreground">Foreground</button><button class="filter-btn" data-plant="Midground">Midground</button><button class="filter-btn" data-plant="Background">Background</button><button class="filter-btn" data-plant="Floating">Floating</button></div><select id="plant-sort" aria-label="Sort plants"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="low">Price Low to High</option><option value="high">Price High to Low</option></select></div><div class="grid grid-4 plant-grid"></div></div></section><section class="section immersive"><div class="container"><div class="section-head merchandising-head"><div><span class="eyebrow" style="color:#b6e0ee">Plant care, connected</span><h2>Light is only one part of the system.</h2><p>Match plant choice to light, substrate, nutrition and your willingness to prune. CO₂ can improve growth for some species but is not a universal requirement.</p></div><a class="btn btn-secondary" href="${page("guides/planted-tank-basics.html")}">Read planted tank basics</a></div><div class="grid grid-2 plant-support-row">${D.equipment
       .filter((e) => e.type === "Lighting")
       .slice(0, 2)
       .map(equipmentCard)
       .join("")}</div></div></section></main>`;
   }
   function equipment() {
-    return `<main id="main">${pageHero("Equipment", "The system behind the scenery.", "Shop aquariums, filtration and lighting first, then complete the setup with heating, testing and aquascaping tools.")}<section class="section-sm"><div class="container"><div class="filter-row equipment-tabs">${["All", "Tank", "Filter", "Lighting", "Heating", "Testing", "Aquascaping"].map((x, i) => `<button class="filter-btn ${i === 0 ? "active" : ""}" data-type="${x}">${x === "All" ? "All equipment" : x}</button>`).join("")}</div></div></section><section class="section" style="padding-top:20px"><div class="container"><div class="toolbar"><div><strong class="equipment-count"></strong><p class="results-info">In-store pickup and regional delivery available on all hardware.</p></div><select id="equipment-sort" aria-label="Sort equipment"><option value="featured">Featured</option><option value="low">Price Low to High</option><option value="high">Price High to Low</option><option value="name">Name A–Z</option></select></div><div class="grid grid-4 equipment-grid"></div></div></section><section class="section feature-strip"><div class="container"><div class="section-head"><div><span class="eyebrow">Compare the essentials</span><h2>Choose for volume and purpose</h2></div></div><div class="feature-row"><div class="feature"><strong>Aquarium</strong><span>Water volume, footprint and access shape every later decision.</span></div><div class="feature"><strong>Filter</strong><span>Size for bioload and usable media, not just headline flow.</span></div><div class="feature"><strong>Light</strong><span>Match intensity and spread to the inhabitants and plants.</span></div><div class="feature"><strong>Testing</strong><span>Make water quality visible before problems become obvious.</span></div></div></div></section></main>`;
+    return `<main id="main">${pageHero("Equipment", "The system behind the scenery.", "Shop aquariums, filtration and lighting first, then complete the setup with heating, testing and aquascaping tools.", asset("images/equipment/aquascape-tools.jpg"))}<section class="section-sm"><div class="container"><div class="filter-row equipment-tabs">${["All", "Tank", "Filter", "Lighting", "Heating", "Testing", "Aquascaping"].map((x, i) => `<button class="filter-btn ${i === 0 ? "active" : ""}" data-type="${x}">${x === "All" ? "All equipment" : x}</button>`).join("")}</div></div></section><section class="section" style="padding-top:20px"><div class="container"><div class="toolbar"><div><strong class="equipment-count"></strong><p class="results-info">In-store pickup and regional delivery available on all hardware.</p></div><select id="equipment-sort" aria-label="Sort equipment"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="low">Price Low to High</option><option value="high">Price High to Low</option></select></div><div class="grid grid-4 equipment-grid"></div></div></section><section class="section feature-strip"><div class="container"><div class="section-head"><div><span class="eyebrow">Compare the essentials</span><h2>Choose for volume and purpose</h2></div></div><div class="feature-row"><div class="feature"><strong>Aquarium</strong><span>Water volume, footprint and access shape every later decision.</span></div><div class="feature"><strong>Filter</strong><span>Size for bioload and usable media, not just headline flow.</span></div><div class="feature"><strong>Light</strong><span>Match intensity and spread to the inhabitants and plants.</span></div><div class="feature"><strong>Testing</strong><span>Make water quality visible before problems become obvious.</span></div></div></div></section></main>`;
   }
   const guideSections = {
     "freshwater-setup": [
@@ -286,17 +643,17 @@
     ],
   };
   function careGuides() {
-    return `<main id="main">${pageHero("Care Guides", "Better aquariums begin with better questions.", "Original, practical reading on setup, water quality, planted tanks, maintenance and responsible fish introductions.")}<section class="section"><div class="container"><div class="toolbar guides-toolbar"><div class="filter-row guide-filters"><button class="filter-btn active" data-guide="All">All</button>${[...new Set(D.guides.map((g) => g.category))].map((x) => `<button class="filter-btn" data-guide="${x}">${x}</button>`).join("")}</div><div class="guide-search-wrap"><input id="guide-search" class="search-input" type="search" placeholder="Search care guides…" aria-label="Search care guides"></div></div><div class="article-grid guides-grid">${D.guides.map((g, i, all) => guideCard(g, { featured: i === 0, closing: i === all.length - 1 })).join("")}</div></div></section><section class="section feature-strip"><div class="container split split-cta"><div><span class="eyebrow">Need a practical starting point?</span><h2>Turn reading into an equipment checklist.</h2><p class="lede">The planner connects aquarium type and volume to suitable hardware, while keeping cycling and husbandry decisions explicit.</p></div><a class="btn btn-primary" href="${page("tank-planner.html")}">Open tank planner</a></div></section></main>`;
+    return `<main id="main">${pageHero("Care Guides", "Better aquariums begin with better questions.", "Original, practical reading on setup, water quality, planted tanks, maintenance and responsible fish introductions.", asset("images/home/freshwater-aquarium.jpg"))}<section class="section"><div class="container"><div class="toolbar guides-toolbar"><div class="filter-row guide-filters"><button class="filter-btn active" data-guide="All">All</button>${[...new Set(D.guides.map((g) => g.category))].map((x) => `<button class="filter-btn" data-guide="${x}">${x}</button>`).join("")}</div><div class="guide-search-wrap"><input id="guide-search" class="search-input" type="search" placeholder="Search care guides…" aria-label="Search care guides"></div></div><div class="article-grid guides-grid">${D.guides.map((g, i, all) => guideCard(g, { featured: i === 0, closing: i === all.length - 1 })).join("")}</div></div></section><section class="section feature-strip"><div class="container split split-cta"><div><span class="eyebrow">Need a practical starting point?</span><h2>Turn reading into an equipment checklist.</h2><p class="lede">The planner connects aquarium type and volume to suitable hardware, while keeping cycling and husbandry decisions explicit.</p></div><a class="btn btn-primary" href="${page("tank-planner.html")}">Open tank planner</a></div></section></main>`;
   }
   function guide(id) {
     const g = D.guides.find((x) => x.id === id) || D.guides[0],
       data = guideSections[id] || guideSections["freshwater-setup"];
-    return `<main id="main">${pageHero(g.category, data[0], g.summary)}<section class="section"><div class="container"><article class="article"><div class="hero-image"><img src="${g.image}" alt="${g.title}"></div><p class="lede">A stable aquarium is built through planning, observation and gradual change. This guide explains the working principles without pretending that every species or water supply is identical.</p>${data[1].map((h, i) => `<h2>${i + 1}. ${h}</h2><p>${data[2][i]}</p>`).join("")}<aside><strong>Responsible-care note</strong><p>Use this guide as a foundation, then verify the needs of each species and product you select. When an animal is unwell, seek an appropriately qualified aquatic veterinarian.</p></aside><h2>Useful next steps</h2><ul><li><a href="${page("tank-planner.html")}">Build a setup checklist</a></li><li><a href="${page("fish-catalog.html")}">Compare species requirements</a></li><li><a href="${page("contact.html?type=care-question")}">Ask the store a care question</a></li></ul></article></div></section></main>`;
+    return `<main id="main">${pageHero(g.category, data[0], g.summary, g.image || asset("images/home/freshwater-aquarium.jpg"))}<section class="section"><div class="container"><article class="article"><div class="hero-image"><img src="${g.image}" alt="${g.title}"></div><p class="lede">A stable aquarium is built through planning, observation and gradual change. This guide explains the working principles without pretending that every species or water supply is identical.</p>${data[1].map((h, i) => `<h2>${i + 1}. ${h}</h2><p>${data[2][i]}</p>`).join("")}<aside><strong>Responsible-care note</strong><p>Use this guide as a foundation, then verify the needs of each species and product you select. When an animal is unwell, seek an appropriately qualified aquatic veterinarian.</p></aside><h2>Useful next steps</h2><ul><li><a href="${page("tank-planner.html")}">Build a setup checklist</a></li><li><a href="${page("fish-catalog.html")}">Compare species requirements</a></li><li><a href="${page("contact.html?type=care-question")}">Ask the store a care question</a></li></ul></article></div></section></main>`;
   }
   function fishDetail() {
     const id = new URLSearchParams(location.search).get("id"),
       f = D.fish.find((x) => x.id === id) || D.fish[0];
-    return `<main id="main">${pageHero(f.water, "Species care profile", "Use this profile as a responsible starting point; individual care requirements and source recommendations can vary.")}<section class="section"><div class="container product-detail"><div class="detail-media"><img src="${f.image}" alt="Aquarium photography representing ${f.name}"></div><div class="detail-copy"><span class="eyebrow">${f.water} species</span><h2>${f.name}</h2><div class="scientific">${f.scientific}</div><div class="detail-price">From ${money(f.price)}</div><p>${f.notes}</p><div class="spec-grid species-specs ${f.salinity ? "specs-nine" : "specs-eight"}"><div class="spec"><span>Adult size</span><strong>Approx. ${f.size} cm</strong></div><div class="spec"><span>Suggested minimum</span><strong>${f.tank} litres</strong></div><div class="spec"><span>Temperature</span><strong>${f.temp}</strong></div><div class="spec"><span>Typical pH</span><strong>${f.ph}</strong></div>${f.salinity ? `<div class="spec"><span>Salinity</span><strong>${f.salinity}</strong></div>` : ""}<div class="spec"><span>Temperament</span><strong>${f.temperament}</strong></div><div class="spec"><span>Diet</span><strong>${f.diet}</strong></div><div class="spec"><span>Experience</span><strong>${f.care}</strong></div><div class="spec"><span>Lifespan</span><strong>${f.lifespan}</strong></div></div><div class="notice">Availability is confirmed by enquiry. This does not place or reserve a live-animal order.</div><div class="card-actions"><a class="btn btn-primary" href="${page("contact.html?item=" + encodeURIComponent(f.name) + "&category=" + f.water + "&type=availability")}">Request availability</a><a class="btn btn-outline" href="${page("fish-catalog.html")}">Back to catalog</a></div></div></div></section><section class="section feature-strip"><div class="container"><div class="section-head"><div><span class="eyebrow">Care approach</span><h2>Acclimate slowly. Observe closely.</h2></div></div><div class="feature-row"><div class="feature"><strong>Cycle first</strong><span>Only introduce livestock to a demonstrably cycled aquarium.</span></div><div class="feature"><strong>Match water</strong><span>Minimize temperature and chemistry differences.</span></div><div class="feature"><strong>Respect behavior</strong><span>Social group, territory and cover affect welfare.</span></div><div class="feature"><strong>Feed appropriately</strong><span>Use varied foods suitable for the species.</span></div></div></div></section><section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Related species</span><h2>Continue researching</h2></div></div><div class="grid grid-3">${D.fish
+    return `<main id="main">${pageHero(f.water, f.name + " · Species Care Profile", "Use this profile as a responsible starting point; individual care requirements and source recommendations can vary.", f.image || asset("images/home/marine-aquarium.jpg"))}<section class="section"><div class="container product-detail"><div class="detail-media"><img src="${f.image}" alt="Aquarium photography representing ${f.name}"></div><div class="detail-copy"><span class="eyebrow">${f.water} species</span><h2>${f.name}</h2><div class="scientific">${f.scientific}</div><div class="detail-price">From ${money(f.price)}</div><p>${f.notes}</p><div class="spec-grid species-specs ${f.salinity ? "specs-nine" : "specs-eight"}"><div class="spec"><span>Adult size</span><strong>Approx. ${f.size} cm</strong></div><div class="spec"><span>Suggested minimum</span><strong>${f.tank} litres</strong></div><div class="spec"><span>Temperature</span><strong>${f.temp}</strong></div><div class="spec"><span>Typical pH</span><strong>${f.ph}</strong></div>${f.salinity ? `<div class="spec"><span>Salinity</span><strong>${f.salinity}</strong></div>` : ""}<div class="spec"><span>Temperament</span><strong>${f.temperament}</strong></div><div class="spec"><span>Diet</span><strong>${f.diet}</strong></div><div class="spec"><span>Experience</span><strong>${f.care}</strong></div><div class="spec"><span>Lifespan</span><strong>${f.lifespan}</strong></div></div><div class="notice">Availability is confirmed by enquiry. This does not place or reserve a live-animal order.</div><div class="card-actions"><a class="btn btn-primary" href="${page("contact.html?item=" + encodeURIComponent(f.name) + "&category=" + f.water + "&type=availability")}">Request availability</a><a class="btn btn-outline" href="${page("fish-catalog.html")}">Back to catalog</a></div></div></div></section><section class="section feature-strip"><div class="container"><div class="section-head"><div><span class="eyebrow">Care approach</span><h2>Acclimate slowly. Observe closely.</h2></div></div><div class="feature-row"><div class="feature"><strong>Cycle first</strong><span>Only introduce livestock to a demonstrably cycled aquarium.</span></div><div class="feature"><strong>Match water</strong><span>Minimize temperature and chemistry differences.</span></div><div class="feature"><strong>Respect behavior</strong><span>Social group, territory and cover affect welfare.</span></div><div class="feature"><strong>Feed appropriately</strong><span>Use varied foods suitable for the species.</span></div></div></div></section><section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow">Related species</span><h2>Continue researching</h2></div></div><div class="grid grid-3">${D.fish
       .filter((x) => x.water === f.water && x.id !== f.id)
       .slice(0, 3)
       .map(fishCard)
@@ -308,10 +665,10 @@
         [...D.equipment, ...D.plants].find((x) => x.id === id) ||
         D.equipment[0],
       isPlant = !!p.scientific;
-    return `<main id="main">${pageHero(isPlant ? "Aquatic Plants" : p.type, isPlant ? "Living detail" : "Equipment detail", "Review specifications, tank requirements and care notes before adding this item to your bag.")}<section class="section"><div class="container product-detail"><div class="detail-media"><img src="${p.image}" alt="${p.name}"></div><div class="detail-copy"><span class="eyebrow">${isPlant ? p.placement : p.type}</span><h2>${p.name}</h2>${isPlant ? `<div class="scientific">${p.scientific}</div>` : ""}<div class="detail-price">${money(p.price)}</div><p>${isPlant ? "A living aquarium plant selected for aquascape structure. Match its light, nutrition and placement needs to your system." : p.spec + ". Match every component to the real aquarium volume, inhabitants and manufacturer guidance."}</p><div class="spec-grid product-specs ${isPlant || p.tank ? "specs-four" : "specs-three"}">${isPlant ? `<div class="spec"><span>Light</span><strong>${p.light}</strong></div><div class="spec"><span>Difficulty</span><strong>${p.care}</strong></div><div class="spec"><span>Placement</span><strong>${p.placement}</strong></div><div class="spec"><span>CO₂</span><strong>${p.co2}</strong></div>` : `<div class="spec"><span>Category</span><strong>${p.type}</strong></div>${p.tank ? `<div class="spec"><span>${p.type === "Tank" ? "Capacity" : "Suggested upper volume"}</span><strong>${p.tank} L</strong></div>` : ""}<div class="spec"><span>Key specification</span><strong>${p.spec}</strong></div><div class="spec"><span>Availability</span><strong>${p.available}</strong></div>`}</div><div class="notice">Product specifications and inclusions are verified with authorized brand distributors.</div><div class="card-actions"><button class="btn btn-primary add-cart" data-id="${p.id}" data-kind="${isPlant ? "plant" : "equipment"}">Add to bag</button><a class="btn btn-outline" href="${page(isPlant ? "aquatic-plants.html" : "equipment.html")}">Back to collection</a></div></div></div></section></main>`;
+    return `<main id="main">${pageHero(isPlant ? "Aquatic Plants" : p.type, isPlant ? "Living detail: " + p.name : p.name, "Review specifications, tank requirements and care notes before adding this item to your bag.", p.image || asset("images/equipment/aquascape-tools.jpg"))}<section class="section"><div class="container product-detail"><div class="detail-media"><img src="${p.image}" alt="${p.name}"></div><div class="detail-copy"><span class="eyebrow">${isPlant ? p.placement : p.type}</span><h2>${p.name}</h2>${isPlant ? `<div class="scientific">${p.scientific}</div>` : ""}<div class="detail-price">${money(p.price)}</div><p>${isPlant ? "A living aquarium plant selected for aquascape structure. Match its light, nutrition and placement needs to your system." : p.spec + ". Match every component to the real aquarium volume, inhabitants and manufacturer guidance."}</p><div class="spec-grid product-specs ${isPlant || p.tank ? "specs-four" : "specs-three"}">${isPlant ? `<div class="spec"><span>Light</span><strong>${p.light}</strong></div><div class="spec"><span>Difficulty</span><strong>${p.care}</strong></div><div class="spec"><span>Placement</span><strong>${p.placement}</strong></div><div class="spec"><span>CO₂</span><strong>${p.co2}</strong></div>` : `<div class="spec"><span>Category</span><strong>${p.type}</strong></div>${p.tank ? `<div class="spec"><span>${p.type === "Tank" ? "Capacity" : "Suggested upper volume"}</span><strong>${p.tank} L</strong></div>` : ""}<div class="spec"><span>Key specification</span><strong>${p.spec}</strong></div><div class="spec"><span>Availability</span><strong>${p.available}</strong></div>`}</div><div class="notice">Product specifications and inclusions are verified with authorized brand distributors.</div><div class="card-actions"><button class="btn btn-primary add-cart" data-id="${p.id}" data-kind="${isPlant ? "plant" : "equipment"}">Add to bag</button><a class="btn btn-outline" href="${page(isPlant ? "aquatic-plants.html" : "equipment.html")}">Back to collection</a></div></div></div></section></main>`;
   }
   function planner() {
-    return `<main id="main">${pageHero("Tank Planner", "Plan the system before you plan the fish.", "Build a size-aware starter checklist for freshwater, planted freshwater or marine aquariums. This is a planning aid, not a husbandry guarantee.")}<section class="section"><div class="container planner"><form class="planner-form" id="planner-form"><h2 style="font-size:1.6rem">Your aquarium</h2><div class="field"><label for="plan-type">Tank type</label><select id="plan-type"><option value="Freshwater">Freshwater</option><option value="Planted">Planted freshwater</option><option value="Marine">Marine</option></select></div><div class="field"><label for="plan-volume">Desired volume (litres)</label><input id="plan-volume" type="number" min="20" max="500" value="60"></div><div class="field"><label for="plan-level">Experience level</label><select id="plan-level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="field"><label for="plan-pref">Setup preference</label><select id="plan-pref"><option value="Community">Calm community</option><option value="Display">Display aquascape</option><option value="Species">Species-focused</option></select></div><button class="btn btn-outline" type="reset">Reset</button></form><div class="planner-results"><span class="eyebrow">Suggested foundation</span><h2 style="font-size:1.8rem">Your equipment checklist</h2><div class="planner-summary"><p class="results-info planner-note"></p><strong class="planner-count" aria-live="polite"></strong></div><div class="checklist"></div><button class="btn btn-primary planner-add">Add selected hardware to bag</button><div class="notice" style="margin-top:18px">Cycle and test the aquarium before adding animals. Marine and freshwater requirements are not interchangeable.</div></div></div></section></main>`;
+    return `<main id="main">${pageHero("Tank Planner", "Plan the system before you plan the fish.", "Build a size-aware starter checklist for freshwater, planted freshwater or marine aquariums. This is a planning aid, not a husbandry guarantee.", asset("images/equipment/rimless-60.jpg"))}<section class="section"><div class="container planner"><form class="planner-form" id="planner-form"><h2 style="font-size:1.6rem">Your aquarium</h2><div class="field"><label for="plan-type">Tank type</label><select id="plan-type"><option value="Freshwater">Freshwater</option><option value="Planted">Planted freshwater</option><option value="Marine">Marine</option></select></div><div class="field"><label for="plan-volume">Desired volume (litres)</label><input id="plan-volume" type="number" min="20" max="500" value="60"></div><div class="field"><label for="plan-level">Experience level</label><select id="plan-level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="field"><label for="plan-pref">Setup preference</label><select id="plan-pref"><option value="Community">Calm community</option><option value="Display">Display aquascape</option><option value="Species">Species-focused</option></select></div><button class="btn btn-outline" type="reset">Reset</button></form><div class="planner-results"><span class="eyebrow">Suggested foundation</span><h2 style="font-size:1.8rem">Your equipment checklist</h2><div class="planner-summary"><p class="results-info planner-note"></p><strong class="planner-count" aria-live="polite"></strong></div><div class="checklist"></div><button class="btn btn-primary planner-add">Add selected hardware to bag</button><div class="notice" style="margin-top:18px">Cycle and test the aquarium before adding animals. Marine and freshwater requirements are not interchangeable.</div></div></div></section></main>`;
   }
   function about() {
     const pathways = [
@@ -319,16 +676,289 @@
       ["Build the habitat", "Match plants and equipment to the intended system.", "aquatic-plants.html"],
       ["Learn before stocking", "Use practical guides to prepare, cycle and maintain.", "care-guides.html"],
     ];
-    return `<main id="main">${pageHero("About", "Aquariums reward curiosity, patience and close observation.", "BlueCurrent Aquatics is a configurable storefront concept built around responsible discovery—not invented claims about a real company.")}<section class="section about-story"><div class="container split"><div class="split-media editorial-photo"><img src="${asset("images/about/aquarium-gallery.jpg")}" alt="Large public aquarium display"></div><div><span class="eyebrow">Our point of view</span><h2>A store should help you say “not yet.”</h2><p class="lede">The most useful aquarium advice sometimes delays a purchase. We organize fish, plants and equipment around requirements, so beauty never outruns readiness.</p><p>Every profile begins with the mature animal and the complete habitat: adult size, social needs, water type, filtration, planting and the keeper’s real maintenance capacity.</p><blockquote>Good aquarium retail makes the next decision clearer—even when the right decision is to wait.</blockquote></div></div></section><section class="section immersive"><div class="container guidance-layout"><div><span class="eyebrow" style="color:#b6e0ee">A guided path</span><h2>Move from inspiration to a workable system.</h2><p>Use the store as a connected field guide. Start broad, check requirements, then ask for help where your setup is specific.</p><a class="btn btn-secondary" href="${page("contact.html?type=setup-help")}">Ask for setup guidance</a></div><div class="guidance-links">${pathways.map((x, i) => `<a href="${page(x[2])}"><span>0${i + 1}</span><strong>${x[0]}</strong><small>${x[1]}</small>${svg("arrow")}</a>`).join("")}</div></div></section><section class="section"><div class="container split"><div><span class="eyebrow">Responsible retail</span><h2>No magic shortcuts. No guaranteed compatibility.</h2><p class="lede">Every aquarium is shaped by water chemistry, maintenance, space and individual animal behavior. Our tools are designed to prompt better research and better questions.</p><div class="cta-pair"><a class="btn btn-primary" href="${page("care-guides.html")}">Start learning</a><a class="btn btn-outline" href="${page("contact.html")}">Contact the store</a></div></div><div class="split-media editorial-photo"><img src="${asset("images/home/planted-aquarium.jpg")}" alt="Balanced planted freshwater aquarium"></div></div></section></main>`;
+    return `<main id="main">
+      ${pageHero(
+        "About",
+        "Aquariums reward curiosity, patience and close observation.",
+        "BlueCurrent Aquatics is a dedicated aquatic atelier and storefront built around responsible discovery, healthy biotope stewardship, and living aquascaping art.",
+        asset("images/about/aquarium-gallery.jpg")
+      )}
+      
+      <!-- Section 1: Our Story -->
+      <section class="section about-story" id="our-story">
+        <div class="container split">
+          <div class="split-media editorial-photo">
+            <img src="${asset("images/about/aquarium-gallery.jpg")}" alt="BlueCurrent Aquatics gallery and display aquariums">
+          </div>
+          <div>
+            <span class="eyebrow">Our Story</span>
+            <h2>From Passionate Keepers to a Curated Aquatic Sanctuary</h2>
+            <p class="lede">BlueCurrent Aquatics was founded in 2018 by lifelong aquarists frustrated by mass-market pet shops that treated fish as disposable novelties and sold incompatible livestock to unprepared customers.</p>
+            <p>We started with a single room of quarantine tanks and a clear conviction: an aquarium is not a disposable decoration, but a living, breathing micro-biosphere. Rather than pushing hurried transactions, we built an intentional sanctuary where animals are quarantined with medical diligence, aquatic plants are tissue-cultured free of pests, and hobbyists receive candid, science-grounded guidance.</p>
+            <div class="story-stats">
+              <div class="stat-item"><strong>14-Day</strong><span>Prophylactic quarantine on all livestock</span></div>
+              <div class="stat-item"><strong>100%</strong><span>Pest-free tissue cultured plants</span></div>
+              <div class="stat-item"><strong>5,000+</strong><span>Balanced home aquariums established</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Our Passion for Aquariums -->
+      <section class="section about-passion" id="our-passion">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow">Our Passion for Aquariums</span>
+              <h2>Reverence for the Living Underwater World</h2>
+              <p class="lede" style="max-width:760px;margin-inline:auto">For us, an aquarium is far more than glass and water—it is a daily practice of patience, observation, and natural art that grounds modern life.</p>
+            </div>
+          </div>
+          <div class="grid grid-3 passion-grid">
+            <div class="passion-card">
+              <div class="passion-icon">${svg("fish")}</div>
+              <h3>Biotope Empathy</h3>
+              <p>We study native river basins, coastal reefs, and blackwater creeks so each species enjoys the precise flow, light canopy, and water chemistry it evolved to inhabit.</p>
+            </div>
+            <div class="passion-card">
+              <div class="passion-icon">${svg("leaf")}</div>
+              <h3>Botanical Architecture</h3>
+              <p>Aquatic plants are the living lungs of the aquarium. We champion natural aquascaping principles that cultivate oxygenation, nitrate absorption, and natural territorial cover.</p>
+            </div>
+            <div class="passion-card">
+              <div class="passion-icon">${svg("shield")}</div>
+              <h3>The Science of Stability</h3>
+              <p>We believe true luxury is biological equilibrium. Mastering the nitrogen cycle, trace elements, and gentle filtration always triumphs over short-term chemical fixes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Why Choose Our Store -->
+      <section class="section about-why-choose immersive" id="why-choose-us">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow" style="color:#b6e0ee">Why Choose Our Store</span>
+              <h2>The BlueCurrent Standard of Excellence</h2>
+              <p class="lede" style="max-width:740px;margin-inline:auto;color:#d5edf4">We hold every fish, plant, and piece of hardware to standards that exceed industry norms.</p>
+            </div>
+          </div>
+          <div class="grid grid-4 why-grid">
+            <div class="why-card">
+              <div class="why-num">01</div>
+              <h3>14-Day Health Protocol</h3>
+              <p>Every specimen undergoes extensive prophylactic care and observation to ensure vigorous appetite and zero external pathogens before availability.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-num">02</div>
+              <h3>Certified Biologists on Staff</h3>
+              <p>Our specialists hold degrees in marine biology and decades of practical husbandry experience, offering personalized advice for your exact water parameters.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-num">03</div>
+              <h3>Ethical & Sustainable Sourcing</h3>
+              <p>We partner exclusively with certified captive breeders, certified net-caught marine collectors, and sterile tissue-culture botanical nurseries.</p>
+            </div>
+            <div class="why-card">
+              <div class="why-num">04</div>
+              <h3>Lifetime Setup Support</h3>
+              <p>Our commitment doesn't end at checkout. From nitrogen cycling to aquascape pruning and livestock growth, we support your tank's lifelong health.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Our Team -->
+      <section class="section about-team" id="our-team">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow">Our Team</span>
+              <h2>Meet the Specialists Behind BlueCurrent</h2>
+              <p class="lede" style="max-width:720px;margin-inline:auto">Our diverse team of marine scientists, master aquascapers, and water chemistry experts shares a unified dedication to aquatic welfare.</p>
+            </div>
+          </div>
+          <div class="grid grid-4 team-grid">
+            <div class="team-card">
+              <div class="team-avatar">
+                <img src="${asset("images/about/aquarium-gallery.jpg")}" alt="Elena Rostova">
+                <span class="team-role-badge">Aquascaping</span>
+              </div>
+              <div class="team-body">
+                <h3>Elena Rostova</h3>
+                <div class="team-role">Master Aquascaper & Creative Lead</div>
+                <p>Specializes in Nature Aquarium & Iwagumi layouts. Winner of international aquascaping competitions with 12+ years of display experience.</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">
+                <img src="${asset("images/home/marine-aquarium.jpg")}" alt="Dr. Marcus Chen">
+                <span class="team-role-badge">Marine Biology</span>
+              </div>
+              <div class="team-body">
+                <h3>Dr. Marcus Chen</h3>
+                <div class="team-role">Senior Marine Biologist & Reef Lead</div>
+                <p>PhD in Marine Ecology. Oversees our reef propagation systems, ionic balance testing, and symbiotic clownfish breeding programs.</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">
+                <img src="${asset("images/home/planted-aquarium.jpg")}" alt="Sofia Al-Mansoor">
+                <span class="team-role-badge">Botany</span>
+              </div>
+              <div class="team-body">
+                <h3>Sofia Al-Mansoor</h3>
+                <div class="team-role">Plant Physiology & Nutrient Specialist</div>
+                <p>Botanist dedicated to submerged macrophyte nutrition, pressurized CO2 optimization, and pest-free tissue culture acclimation.</p>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">
+                <img src="${asset("images/home/freshwater-aquarium.jpg")}" alt="David Thorne">
+                <span class="team-role-badge">Husbandry</span>
+              </div>
+              <div class="team-body">
+                <h3>David Thorne</h3>
+                <div class="team-role">Husbandry Director & Quarantine Lead</div>
+                <p>Former public aquarium senior aquarist. Enforces our rigorous 14-day quarantine regimen, water purification, and live-arrival health.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Guided Path & Commitment -->
+      <section class="section">
+        <div class="container split">
+          <div>
+            <span class="eyebrow">Responsible Retail</span>
+            <h2>No magic shortcuts. No guaranteed compatibility.</h2>
+            <p class="lede">Every aquarium is shaped by water chemistry, maintenance, space and individual animal behavior. Our tools are designed to prompt better research and better questions.</p>
+            <div class="cta-pair">
+              <a class="btn btn-primary" href="${page("care-guides.html")}">Explore Care Guides</a>
+              <a class="btn btn-outline" href="${page("contact.html")}">Contact Our Team</a>
+            </div>
+          </div>
+          <div class="split-media editorial-photo">
+            <img src="${asset("images/home/planted-aquarium.jpg")}" alt="Balanced planted freshwater aquarium">
+          </div>
+        </div>
+      </section>
+    </main>`;
   }
   function contact() {
-    return `<main id="main">${pageHero("Contact", "Ask about a species, product or complete setup.", "Visit our store or get in touch regarding livestock availability, custom setups and equipment orders.")}<section class="section"><div class="container split"><div class="location-card" id="location"><span class="eyebrow">Store location</span><h2 style="font-size:1.8rem">Visit BlueCurrent Aquatics</h2><p class="lede">42 Marine Parade, Harbor District<br>Open Mon–Sat 9:30 AM – 6:00 PM, Sun 10:00 AM – 4:00 PM</p><div class="notice">Specialist livestock consultation available in-store. Online enquiries answered within 24 hours.</div></div><div><span class="eyebrow">Before you enquire</span><h2>Useful details make a useful reply.</h2><p class="lede">For livestock, include your aquarium volume, water type and current inhabitants. For equipment, include the tank dimensions and model where possible.</p><div class="feature-row" style="grid-template-columns:1fr 1fr"><div class="feature"><strong>Live animals</strong><span>Requests confirm interest, not a reservation.</span></div><div class="feature"><strong>Products</strong><span>Pickup and direct shipping available on all hardware.</span></div></div></div></div></section><section class="section feature-strip"><div class="container"><div class="section-head"><div><span class="eyebrow">Special order enquiry</span><h2>Tell us what you’re looking for.</h2><p class="lede">Looking for a rare species or specific tank setup? Let our aquatics team know and we’ll check availability with our specialist suppliers.</p></div></div><form class="form-card" id="contact-form"><div class="grid grid-2"><div class="field"><label for="name">Name *</label><input id="name" name="name" required autocomplete="name"></div><div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div><div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div><div class="field"><label for="enquiry-type">Enquiry type *</label><select id="enquiry-type" name="type" required><option value="">Select</option><option value="availability">Availability</option><option value="special-order">Special order</option><option value="setup-help">Setup help</option><option value="care-question">Care question</option></select></div><div class="field"><label for="item">Product or species name *</label><input id="item" name="item" required></div><div class="field"><label for="category">Category *</label><select id="category" name="category" required><option value="">Select</option><option>Freshwater</option><option>Marine</option><option>Plants</option><option>Equipment</option></select></div><div class="field"><label for="quantity">Quantity *</label><input id="quantity" name="quantity" type="number" min="1" value="1" required></div><div class="field"><label for="method">Preferred contact *</label><select id="method" name="method" required><option>Email</option><option>Phone</option></select></div><div class="field"><label for="tank-type">Desired tank type</label><select id="tank-type" name="tank-type"><option value="">Not specified</option><option>Freshwater</option><option>Marine</option><option>Planted freshwater</option></select></div><div class="field"><label for="tank-size">Approximate tank size</label><input id="tank-size" name="tank-size" placeholder="e.g. 120 litres"></div></div><div class="field" style="margin-top:16px"><label for="message">Message *</label><textarea id="message" name="message" required></textarea></div><label style="display:flex;gap:10px;margin:16px 0"><input type="checkbox" required> I agree that these details may be used to respond to my enquiry.</label><button class="btn btn-primary" type="submit">Prepare enquiry</button><p class="results-info form-status" aria-live="polite"></p></form></div></section></main>`;
+    return `<main id="main">
+      ${pageHero(
+        "Contact",
+        "Visit our store or get in touch with our aquatics team.",
+        "Ask about livestock availability, equipment recommendations, or schedule an in-depth setup consultation.",
+        asset("images/about/aquarium-gallery.jpg")
+      )}
+      
+      <!-- Dedicated Map Section -->
+      <section class="section map-section" id="location-map">
+        <div class="container">
+          <div class="section-head text-center">
+            <div>
+              <span class="eyebrow">Store Location</span>
+              <h2>Visit BlueCurrent Aquatics in Harbor District</h2>
+              <p class="lede" style="max-width:700px;margin-inline:auto">Experience our showroom galleries, inspect live quarantined species, and consult our aquascaping specialists in person.</p>
+            </div>
+          </div>
+          <div class="map-layout">
+            <div class="map-frame-wrapper">
+              <iframe 
+                class="map-frame" 
+                title="BlueCurrent Aquatics Store Location Map" 
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-122.428%2C37.795%2C-122.408%2C37.810&amp;layer=mapnik&amp;marker=37.803%2C-122.418" 
+                loading="lazy" 
+                aria-label="Map showing store location at 42 Marine Parade, Harbor District">
+              </iframe>
+              <div class="map-badge">
+                <span class="status-dot"></span> Open Today until 6:00 PM
+              </div>
+            </div>
+            <div class="map-details-card">
+              <h3>Store Information</h3>
+              <ul class="map-info-list">
+                <li>
+                  <div class="info-icon">${svg("mapPin")}</div>
+                  <div>
+                    <strong>Address</strong>
+                    <p>42 Marine Parade, Suite 104<br>Harbor District, CA 94133</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="info-icon">${svg("clock")}</div>
+                  <div>
+                    <strong>Hours of Operation</strong>
+                    <p>Mon – Sat: 9:30 AM – 6:00 PM<br>Sunday: 10:00 AM – 4:00 PM</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="info-icon">${svg("phone")}</div>
+                  <div>
+                    <strong>Telephone</strong>
+                    <p><a href="tel:+15552848274">+1 (555) 284-8274</a></p>
+                  </div>
+                </li>
+                <li>
+                  <div class="info-icon">${svg("mail")}</div>
+                  <div>
+                    <strong>Direct Email</strong>
+                    <p><a href="mailto:hello@bluecurrentaquatics.com">hello@bluecurrentaquatics.com</a></p>
+                  </div>
+                </li>
+              </ul>
+              <div class="parking-note">
+                <strong>Parking & Transit:</strong> Validated 2-hour parking in Harbor Deck B directly behind our store. 3-minute walk from Waterfront Transit Terminal.
+              </div>
+              <a class="btn btn-primary" style="width:100%;margin-top:16px" href="https://maps.google.com/?q=42+Marine+Parade+Harbor+District" target="_blank" rel="noopener noreferrer">
+                Get Directions ${svg("direction")}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Enquiries & Consultation -->
+      <section class="section feature-strip">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Special Order & Setup Enquiry</span>
+              <h2>Tell us what you’re looking for.</h2>
+              <p class="lede">Looking for a rare species or specific tank setup? Let our aquatics team know and we’ll check availability with our specialist suppliers.</p>
+            </div>
+          </div>
+          <form class="form-card" id="contact-form">
+            <div class="grid grid-2">
+              <div class="field"><label for="name">Name *</label><input id="name" name="name" required autocomplete="name"></div>
+              <div class="field"><label for="email">Email *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+              <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="enquiry-type">Enquiry type *</label><select id="enquiry-type" name="type" required><option value="">Select</option><option value="availability">Availability</option><option value="special-order">Special order</option><option value="setup-help">Setup help</option><option value="care-question">Care question</option></select></div>
+              <div class="field"><label for="item">Product or species name *</label><input id="item" name="item" required></div>
+              <div class="field"><label for="category">Category *</label><select id="category" name="category" required><option value="">Select</option><option>Freshwater</option><option>Marine</option><option>Plants</option><option>Equipment</option></select></div>
+              <div class="field"><label for="quantity">Quantity *</label><input id="quantity" name="quantity" type="number" min="1" value="1" required></div>
+              <div class="field"><label for="method">Preferred contact *</label><select id="method" name="method" required><option>Email</option><option>Phone</option></select></div>
+              <div class="field"><label for="tank-type">Desired tank type</label><select id="tank-type" name="tank-type"><option value="">Not specified</option><option>Freshwater</option><option>Marine</option><option>Planted freshwater</option></select></div>
+              <div class="field"><label for="tank-size">Approximate tank size</label><input id="tank-size" name="tank-size" placeholder="e.g. 120 litres"></div>
+            </div>
+            <div class="field" style="margin-top:16px"><label for="message">Message *</label><textarea id="message" name="message" required></textarea></div>
+            <label style="display:flex;gap:10px;margin:16px 0"><input type="checkbox" required> I agree that these details may be used to respond to my enquiry.</label>
+            <button class="btn btn-primary" type="submit">Prepare enquiry</button>
+            <p class="results-info form-status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>`;
   }
   function cart() {
-    return `<main id="main">${pageHero("Shopping Bag", "Your aquarium essentials, gathered.", "Review quantities and configured prices. Live animals use the separate availability enquiry flow.")}<section class="section"><div class="container cart-layout"><div class="cart-list"></div><aside class="summary"><h3>Order summary</h3><div class="summary-row"><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div><p style="margin-top:14px;color:#c5dce4">Standard shipping and taxes calculated at final confirmation.</p><a class="btn btn-secondary" href="${page("checkout.html")}">Continue to checkout</a><a class="btn btn-outline" style="color:#fff;border-color:#537181" href="${page("equipment.html")}">Continue shopping</a></aside></div></section></main>`;
+    return `<main id="main">${pageHero("Shopping Bag", "Your aquarium essentials, gathered.", "Review quantities and configured prices. Live animals use the separate availability enquiry flow.", asset("images/home/hero-reef.jpg"))}<section class="section"><div class="container cart-layout"><div class="cart-list"></div><aside class="summary"><h3>Order summary</h3><div class="summary-row"><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div><p style="margin-top:14px;color:#c5dce4">Standard shipping and taxes calculated at final confirmation.</p><a class="btn btn-secondary" href="${page("checkout.html")}">Continue to checkout</a><a class="btn btn-outline" style="color:#fff;border-color:#537181" href="${page("equipment.html")}">Continue shopping</a></aside></div></section></main>`;
   }
   function checkout() {
-    return `<main id="main">${pageHero("Checkout", "Order Details & Collection", "Confirm your order details below for store collection or scheduled courier delivery.")}<section class="section"><div class="container planner"><form class="form-card" id="checkout-form"><h2 style="font-size:1.6rem;margin-bottom:20px">Contact and collection details</h2><div class="grid grid-2"><div class="field"><label for="co-name">Name *</label><input id="co-name" required autocomplete="name"></div><div class="field"><label for="co-email">Email *</label><input id="co-email" type="email" required autocomplete="email"></div></div><div class="field" style="margin-top:16px"><label for="co-note">Order notes</label><textarea id="co-note" placeholder="Tank model, collection question or product query"></textarea></div><div class="notice" style="margin:18px 0">Orders are confirmed by our team prior to dispatch. Payment can be settled in-store or upon delivery.</div><button class="btn btn-primary" type="submit">Review next steps</button><p class="form-status" aria-live="polite"></p></form><aside class="summary"><h3>Bag summary</h3><div class="checkout-items"></div><div class="summary-row"><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div></aside></div></section></main>`;
+    return `<main id="main">${pageHero("Checkout", "Order Details & Collection", "Confirm your order details below for store collection or scheduled courier delivery.", asset("images/home/hero-reef.jpg"))}<section class="section"><div class="container planner"><form class="form-card" id="checkout-form"><h2 style="font-size:1.6rem;margin-bottom:20px">Contact and collection details</h2><div class="grid grid-2"><div class="field"><label for="co-name">Name *</label><input id="co-name" required autocomplete="name"></div><div class="field"><label for="co-email">Email *</label><input id="co-email" type="email" required autocomplete="email"></div></div><div class="field" style="margin-top:16px"><label for="co-note">Order notes</label><textarea id="co-note" placeholder="Tank model, collection question or product query"></textarea></div><div class="notice" style="margin:18px 0">Orders are confirmed by our team prior to dispatch. Payment can be settled in-store or upon delivery.</div><button class="btn btn-primary" type="submit">Review next steps</button><p class="form-status" aria-live="polite"></p></form><aside class="summary"><h3>Bag summary</h3><div class="checkout-items"></div><div class="summary-row"><span>Subtotal</span><strong class="cart-subtotal">$0.00</strong></div></aside></div></section></main>`;
   }
   const policies = {
     faq: [
@@ -440,13 +1070,13 @@
         .map((x) => `<h2>${x[0]}</h2><p>${x[1]}</p>`)
         .join("");
     }
-    return `<main id="main">${pageHero(p[0], p[0], p[1])}<section class="section"><div class="container policy">${body}</div></section></main>`;
+    return `<main id="main">${pageHero(p[0], p[0], p[1], asset("images/home/marine-aquarium.jpg"))}<section class="section"><div class="container policy">${body}</div></section></main>`;
   }
   function coming() {
-    return `<main id="main">${pageHero("Coming Soon", "A new current is forming.", "This page is reserved for a future collection or service—without a fabricated countdown.")}<section class="section"><div class="container" style="text-align:center"><h2>Explore what is already available</h2><p class="lede" style="margin:16px auto 24px">Browse species, plants, equipment and complete care guides while the next collection is prepared.</p><a class="btn btn-primary" href="${page("fish-catalog.html")}">Explore fish catalog</a></div></section></main>`;
+    return `<main id="main">${pageHero("Coming Soon", "A new current is forming.", "This page is reserved for a future collection or service—without a fabricated countdown.", asset("images/home/planted-aquarium.jpg"))}<section class="section"><div class="container" style="text-align:center"><h2>Explore what is already available</h2><p class="lede" style="margin:16px auto 24px">Browse species, plants, equipment and complete care guides while the next collection is prepared.</p><a class="btn btn-primary" href="${page("fish-catalog.html")}">Explore fish catalog</a></div></section></main>`;
   }
   function notFound() {
-    return `<main id="main">${pageHero("404", "This current leads somewhere else.", "The page may have moved, but the aquarium is still close by.")}<section class="section"><div class="container" style="text-align:center"><a class="btn btn-primary" href="${page("index.html")}">Return home</a> <a class="btn btn-outline" href="${page("fish-catalog.html")}">Browse fish</a></div></section></main>`;
+    return `<main id="main">${pageHero("404", "This current leads somewhere else.", "The page may have moved, but the aquarium is still close by.", asset("images/home/hero-reef.jpg"))}<section class="section"><div class="container" style="text-align:center"><a class="btn btn-primary" href="${page("index.html")}">Return home</a> <a class="btn btn-outline" href="${page("fish-catalog.html")}">Browse fish</a></div></section></main>`;
   }
   const renderers = {
     home,
@@ -866,6 +1496,7 @@
           sel.dispatchEvent(new Event("change", { bubbles: true }));
           sel.dispatchEvent(new Event("input", { bubbles: true }));
         }
+        syncFromSelect();
         close();
         trigger.focus();
       };
@@ -876,15 +1507,18 @@
       document.querySelectorAll(".custom-select.open").forEach((el) => {
         if (el !== wrapper) {
           el.classList.remove("open");
+          el.querySelector(".custom-select-menu")?.classList.remove("open");
           el.querySelector(".custom-select-trigger")?.setAttribute("aria-expanded", "false");
         }
       });
       wrapper.classList.add("open");
+      menu.classList.add("open");
       trigger.setAttribute("aria-expanded", "true");
     };
 
     const close = () => {
       wrapper.classList.remove("open");
+      menu.classList.remove("open");
       trigger.setAttribute("aria-expanded", "false");
     };
 
@@ -905,6 +1539,7 @@
     });
 
     sel.addEventListener("change", syncFromSelect);
+    sel.addEventListener("input", syncFromSelect);
     syncFromSelect();
   }
   function initFish() {
@@ -947,7 +1582,10 @@
       .querySelectorAll(
         "#fish-search,#water-filter,#care-filter,#tank-filter,#planted-filter,#fish-sort",
       )
-      .forEach((x) => x.addEventListener("input", update));
+      .forEach((x) => {
+        x.addEventListener("input", update);
+        x.addEventListener("change", update);
+      });
     document.querySelector("#clear-filters").onclick = () => {
       document
         .querySelectorAll(
@@ -997,6 +1635,7 @@
         }),
     );
     document.querySelector("#plant-sort").onchange = update;
+    document.querySelector("#plant-sort").addEventListener("input", update);
     update();
     initCustomSelect("plant-sort");
   }
@@ -1025,6 +1664,7 @@
         }),
     );
     document.querySelector("#equipment-sort").onchange = update;
+    document.querySelector("#equipment-sort").addEventListener("input", update);
     update();
     initCustomSelect("equipment-sort");
   }

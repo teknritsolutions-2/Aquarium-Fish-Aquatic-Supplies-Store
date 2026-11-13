@@ -33,3 +33,23 @@
   padding-inline-start: 14px;
   padding-inline-end: 38px;
 }
+
+
+[dir="rtl"] .map-badge {
+  left: auto;
+  right: 18px;
+}
+[dir="rtl"] .style-tag {
+  left: auto;
+  right: 14px;
+}
+[dir="rtl"] .plant-spec-list li::before {
+  margin-left: 6px;
+  margin-right: 0;
+}
+
+
+[dir="rtl"] .style-badge {
+  left: auto;
+  right: 14px;
+}

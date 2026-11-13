@@ -131,3 +131,78 @@
 [data-theme="dark"] .custom-select-check {
   color: var(--ocean);
 }
+
+
+/* Dark Mode Additions for Home 2, About, Contact Map, and New Components */
+[data-theme="dark"] .page-hero-bg {
+  opacity: 0.22;
+  filter: saturate(1.1) brightness(0.7);
+}
+[data-theme="dark"] .studio-stats-bar {
+  background: var(--surface);
+  border-bottom-color: var(--border);
+}
+[data-theme="dark"] .stat-chip-icon,
+[data-theme="dark"] .point-num,
+[data-theme="dark"] .passion-icon,
+[data-theme="dark"] .map-info-icon {
+  background: #183645;
+  color: var(--ocean);
+  border-color: #31515f;
+}
+[data-theme="dark"] .style-card,
+[data-theme="dark"] .scene-point-card,
+[data-theme="dark"] .anatomy-step,
+[data-theme="dark"] .palette-card,
+[data-theme="dark"] .journal-card,
+[data-theme="dark"] .passion-card,
+[data-theme="dark"] .why-card,
+[data-theme="dark"] .team-card,
+[data-theme="dark"] .map-details-card {
+  background: var(--surface);
+  border-color: #31515f;
+}
+[data-theme="dark"] .scene-point-card:hover {
+  background: #183f50;
+  border-color: var(--ocean);
+}
+[data-theme="dark"] .palette-badge {
+  background: #183645;
+  color: var(--ocean);
+}
+[data-theme="dark"] .map-section {
+  background: #071923;
+}
+[data-theme="dark"] .social-link {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #31515f;
+  color: #a9bec7;
+}
+[data-theme="dark"] .social-link:hover {
+  background: var(--ocean);
+  color: #071923;
+  border-color: var(--ocean);
+}
+[data-theme="dark"] .nav-link.active::after,
+[data-theme="dark"] .nav-toggle.active::after {
+  background: var(--ocean);
+}
+[data-theme="dark"] .dropdown a.active {
+  background: #183f50;
+  color: var(--ocean);
+}
+[data-theme="dark"] .mobile-nav a.active {
+  background: #183f50;
+  color: var(--ocean);
+  border-inline-start-color: var(--ocean);
+}
+
+
+[data-theme="dark"] .editorial-hero .studio-stats-bar {
+  background: rgba(7, 25, 35, 0.85);
+  border-color: #31515f;
+}
+[data-theme="dark"] .palette-flora-list li strong {
+  background: #183645;
+  color: var(--ocean);
+}
