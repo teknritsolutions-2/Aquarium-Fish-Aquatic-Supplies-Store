@@ -183,10 +183,6 @@
   color: #071923;
   border-color: var(--ocean);
 }
-[data-theme="dark"] .nav-link.active::after,
-[data-theme="dark"] .nav-toggle.active::after {
-  background: var(--ocean);
-}
 [data-theme="dark"] .dropdown a.active {
   background: #183f50;
   color: var(--ocean);
@@ -205,4 +201,18 @@
 [data-theme="dark"] .palette-flora-list li strong {
   background: #183645;
   color: var(--ocean);
+}
+
+[data-theme="dark"] .team-badge {
+  background: #183645;
+  color: var(--ocean);
+}
+[data-theme="dark"] .parking-note {
+  background: #183645;
+  border-color: #31515f;
+}
+[data-theme="dark"] .hotspot-card {
+  background: rgba(16, 41, 54, 0.96);
+  border-color: #31515f;
+  color: var(--ink);
 }

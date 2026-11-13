@@ -27,7 +27,7 @@
       book: '<path d="M4 5c3-1 6 0 8 2v14c-2-2-5-3-8-2V5Zm16 0c-3-1-6 0-8 2v14c2-2 5-3 8-2V5Z"/>',
       instagram: '<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',
       facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
-      youtube: '<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>',
+      youtube: '<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>',
       twitter: '<path d="M4 4l6.5 7.5L4 20h2.5l5.2-6 4.8 6H20l-6.8-8L19.5 4H17l-4.7 5.5L7.8 4H4z"/>',
       pinterest: '<path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.1-2.1.1-3l1.2-5s-.3-.6-.3-1.6c0-1.5.9-2.7 2-2.7 1 0 1.4.7 1.4 1.6 0 1-.6 2.4-1 3.7-.3 1.1.6 2 1.7 2 2 0 3.5-2.1 3.5-5.2 0-2.7-1.9-4.6-4.7-4.6-3.2 0-5.1 2.4-5.1 4.9 0 1 .4 2 .8 2.6.1.1.1.2 0 .4l-.3 1.2c-.1.2-.2.3-.4.2-1.4-.7-2.3-2.7-2.3-4.4 0-3.6 2.6-6.9 7.6-6.9 4 0 7.1 2.9 7.1 6.7 0 4-2.5 7.2-6 7.2-1.2 0-2.3-.6-2.6-1.3l-.7 2.8c-.3 1-.9 2.3-1.4 3.1A10 10 0 1 0 12 2z"/>',
       mapPin: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
@@ -39,7 +39,7 @@
       sparkle: '<path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/>',
     })[name];
   const svg = (n) =>
-    `<svg viewBox="0 0 24 24" aria-hidden="true">${icon(n)}</svg>`;
+    `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icon(n)}</svg>`;
   const fishUrl = (f) => page("fish-details.html?id=" + f.id);
   const productUrl = (p) => (p && p.id ? page("product-details.html?id=" + p.id) : page("equipment.html"));
   const equipmentById = (id) => D.equipment.find((item) => item.id === id || (id === "canister-200" && item.id === "hob-75"));
@@ -62,16 +62,15 @@
     `<span class="brand-lockup"><img class="brand-logo logo-light" src="${base}assets/brand/logo.svg" alt="${decorative ? "" : "BlueCurrent Aquatics"}"><img class="brand-logo logo-dark" src="${base}assets/brand/logo-white.svg" alt="${decorative ? "" : "BlueCurrent Aquatics"}"></span>`;
   const getActiveState = () => {
     const p = (document.body && document.body.dataset && document.body.dataset.page) || "";
-    const path = location.pathname.toLowerCase();
     return {
-      isHome1: p === "home" || path.endsWith("/index.html") || (path.endsWith("/") && !path.includes("home2")),
-      isHome2: p === "home2" || path.endsWith("/home2.html") || path.includes("home2"),
-      isAbout: p === "about" || path.includes("about"),
-      isFish: p === "fish-catalog" || p === "fish-details" || path.includes("fish-"),
-      isPlants: p === "plants" || path.includes("aquatic-plants"),
-      isEquipment: p === "equipment" || p === "product-details" || path.includes("equipment") || path.includes("product-details"),
-      isGuides: p === "care-guides" || p === "guide" || path.includes("care-guides") || path.includes("/guides/"),
-      isContact: p === "contact" || path.includes("contact"),
+      isHome1: p === "home",
+      isHome2: p === "home2",
+      isAbout: p === "about",
+      isFish: p === "fish-catalog" || p === "fish-details",
+      isPlants: p === "plants",
+      isEquipment: p === "equipment" || p === "product-details",
+      isGuides: p === "care-guides" || p === "guide",
+      isContact: p === "contact",
     };
   };
   const isNavActive = (href, a) => {
@@ -432,7 +431,7 @@
             </div>
             <div class="palette-card">
               <div class="palette-head">
-                <span class="chip" style="background:#4a1520;color:#ff9eaf;border-color:#772635">High-Tech Dutch</span>
+                <span class="chip">High-Tech Dutch</span>
                 <h3>High-Energy Crimson Forest</h3>
               </div>
               <p>Demands pressurized CO₂ and intensive PAR lighting. Delivers deep scarlet, magenta, and emerald stem contrasts.</p>
@@ -781,50 +780,61 @@
           </div>
           <div class="grid grid-4 team-grid">
             <div class="team-card">
-              <div class="team-avatar">
-                <img src="${asset("images/about/aquarium-gallery.jpg")}" alt="Elena Rostova">
-                <span class="team-role-badge">Aquascaping</span>
+              <div class="team-avatar-lockup">
+                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #0a6383, #2289b2)">
+                  <span class="avatar-initials">ER</span>
+                </div>
+                <span class="team-badge">Master Scaper</span>
               </div>
               <div class="team-body">
                 <h3>Elena Rostova</h3>
-                <div class="team-role">Master Aquascaper & Creative Lead</div>
-                <p>Specializes in Nature Aquarium & Iwagumi layouts. Winner of international aquascaping competitions with 12+ years of display experience.</p>
+                <div class="team-role">Founder & Creative Director</div>
+                <div class="team-creds">IAPLC Top 50 Finalist · 12+ Yrs Experience</div>
+                <p>Specializes in Nature Aquarium & Iwagumi layouts. Winner of international aquascaping competitions with 12+ years of display curation.</p>
               </div>
             </div>
             <div class="team-card">
-              <div class="team-avatar">
-                <img src="${asset("images/home/marine-aquarium.jpg")}" alt="Dr. Marcus Chen">
-                <span class="team-role-badge">Marine Biology</span>
+              <div class="team-avatar-lockup">
+                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #074766, #0e7490)">
+                  <span class="avatar-initials">MC</span>
+                </div>
+                <span class="team-badge">Veterinary Lead</span>
               </div>
               <div class="team-body">
                 <h3>Dr. Marcus Chen</h3>
-                <div class="team-role">Senior Marine Biologist & Reef Lead</div>
-                <p>PhD in Marine Ecology. Oversees our reef propagation systems, ionic balance testing, and symbiotic clownfish breeding programs.</p>
+                <div class="team-role">Senior Marine Biologist & DVM</div>
+                <div class="team-creds">PhD Marine Ecology · Cornell University</div>
+                <p>Oversees our closed-loop quarantine, prophylactic pathogen screening, water chemistry conditioning, and reef propagation systems.</p>
               </div>
             </div>
             <div class="team-card">
-              <div class="team-avatar">
-                <img src="${asset("images/home/planted-aquarium.jpg")}" alt="Sofia Al-Mansoor">
-                <span class="team-role-badge">Botany</span>
+              <div class="team-avatar-lockup">
+                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #065f46, #0d9488)">
+                  <span class="avatar-initials">SA</span>
+                </div>
+                <span class="team-badge">Flora Director</span>
               </div>
               <div class="team-body">
                 <h3>Sofia Al-Mansoor</h3>
-                <div class="team-role">Plant Physiology & Nutrient Specialist</div>
-                <p>Botanist dedicated to submerged macrophyte nutrition, pressurized CO2 optimization, and pest-free tissue culture acclimation.</p>
+                <div class="team-role">Plant Physiologist & Tissue Culturist</div>
+                <div class="team-creds">M.Sc. Plant Biology · Wageningen Univ.</div>
+                <p>Specializes in sterile tissue culture propagation, submerged macrophyte nutrition, PAR spectrum tuning, and pest-free living flora.</p>
               </div>
             </div>
             <div class="team-card">
-              <div class="team-avatar">
-                <img src="${asset("images/home/freshwater-aquarium.jpg")}" alt="David Thorne">
-                <span class="team-role-badge">Husbandry</span>
+              <div class="team-avatar-lockup">
+                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #1e3a5f, #2563eb)">
+                  <span class="avatar-initials">DT</span>
+                </div>
+                <span class="team-badge">Systems Specialist</span>
               </div>
               <div class="team-body">
                 <h3>David Thorne</h3>
-                <div class="team-role">Husbandry Director & Quarantine Lead</div>
-                <p>Former public aquarium senior aquarist. Enforces our rigorous 14-day quarantine regimen, water purification, and live-arrival health.</p>
+                <div class="team-role">Husbandry Director & Systems Lead</div>
+                <div class="team-creds">Former Public Aquarium Senior Aquarist</div>
+                <p>Expert in high-capacity canister filtration, pressurized CO₂ systems, reverse-osmosis remineralization, and custom plumbing.</p>
               </div>
-            </div>
-          </div>
+            </div></div>
         </div>
       </section>
 
@@ -881,43 +891,44 @@
             </div>
             <div class="map-details-card">
               <h3>Store Information</h3>
-              <ul class="map-info-list">
-                <li>
-                  <div class="info-icon">${svg("mapPin")}</div>
-                  <div>
-                    <strong>Address</strong>
+              <div class="map-info-list">
+                <div class="map-info-item">
+                  <div class="map-info-icon">${svg("mapPin")}</div>
+                  <div class="map-info-text">
+                    <strong>Store Address</strong>
                     <p>42 Marine Parade, Suite 104<br>Harbor District, CA 94133</p>
                   </div>
-                </li>
-                <li>
-                  <div class="info-icon">${svg("clock")}</div>
-                  <div>
+                </div>
+                <div class="map-info-item">
+                  <div class="map-info-icon">${svg("clock")}</div>
+                  <div class="map-info-text">
                     <strong>Hours of Operation</strong>
                     <p>Mon – Sat: 9:30 AM – 6:00 PM<br>Sunday: 10:00 AM – 4:00 PM</p>
                   </div>
-                </li>
-                <li>
-                  <div class="info-icon">${svg("phone")}</div>
-                  <div>
+                </div>
+                <div class="map-info-item">
+                  <div class="map-info-icon">${svg("phone")}</div>
+                  <div class="map-info-text">
                     <strong>Telephone</strong>
                     <p><a href="tel:+15552848274">+1 (555) 284-8274</a></p>
                   </div>
-                </li>
-                <li>
-                  <div class="info-icon">${svg("mail")}</div>
-                  <div>
+                </div>
+                <div class="map-info-item">
+                  <div class="map-info-icon">${svg("mail")}</div>
+                  <div class="map-info-text">
                     <strong>Direct Email</strong>
                     <p><a href="mailto:hello@bluecurrentaquatics.com">hello@bluecurrentaquatics.com</a></p>
                   </div>
-                </li>
-              </ul>
-              <div class="parking-note">
-                <strong>Parking & Transit:</strong> Validated 2-hour parking in Harbor Deck B directly behind our store. 3-minute walk from Waterfront Transit Terminal.
+                </div>
               </div>
-              <a class="btn btn-primary" style="width:100%;margin-top:16px" href="https://maps.google.com/?q=42+Marine+Parade+Harbor+District" target="_blank" rel="noopener noreferrer">
-                Get Directions ${svg("direction")}
-              </a>
-            </div>
+              <div class="parking-note">
+                <strong>Parking &amp; Transit:</strong> Validated 2-hour parking in Harbor Deck B directly behind our store. 3-minute walk from Waterfront Transit.
+              </div>
+              <div class="map-actions">
+                <a class="btn btn-primary btn-sm" href="https://maps.google.com/?q=42+Marine+Parade+San+Francisco+CA" target="_blank" rel="noopener noreferrer">Get Directions ${svg("arrow")}</a>
+                <a class="btn btn-outline btn-sm" href="tel:+15552848274">Call Store</a>
+              </div>
+            </div></div>
           </div>
         </div>
       </section>
