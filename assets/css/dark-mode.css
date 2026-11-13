@@ -125,16 +125,30 @@
 [data-theme="dark"] textarea {
   color-scheme: dark;
 }
+[data-theme="dark"] .custom-select-trigger {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--border);
+}
+[data-theme="dark"] .custom-select-menu {
+  background: #112d3d;
+  border-color: #254b5f;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+[data-theme="dark"] .custom-select-option {
+  color: #d5edf4;
+}
 [data-theme="dark"] .custom-select-option:hover,
 [data-theme="dark"] .custom-select-option:focus-visible {
   background: rgba(112, 200, 229, 0.16);
+  color: #fff;
 }
 [data-theme="dark"] .custom-select-option.selected {
-  color: var(--ocean);
-  background: rgba(112, 200, 229, 0.12);
+  color: #fff;
+  background: #19485c;
 }
 [data-theme="dark"] .custom-select-check {
-  color: var(--ocean);
+  color: var(--water);
 }
 
 

@@ -496,7 +496,7 @@
               <p class="lede" style="max-width:720px;margin-inline:auto">Keep these principles at the center of your layout to avoid common hurdles and ensure long-term stability.</p>
             </div>
           </div>
-          <div class="grid grid-3 journal-grid">
+          <div class="grid journal-grid">
             <div class="journal-card">
               <div class="journal-num">01</div>
               <h3>The Golden Ratio (1:1.618)</h3>
@@ -667,7 +667,7 @@
     return `<main id="main">${pageHero(isPlant ? "Aquatic Plants" : p.type, isPlant ? "Living detail: " + p.name : p.name, "Review specifications, tank requirements and care notes before adding this item to your bag.", p.image || asset("images/equipment/aquascape-tools.jpg"))}<section class="section"><div class="container product-detail"><div class="detail-media"><img src="${p.image}" alt="${p.name}"></div><div class="detail-copy"><span class="eyebrow">${isPlant ? p.placement : p.type}</span><h2>${p.name}</h2>${isPlant ? `<div class="scientific">${p.scientific}</div>` : ""}<div class="detail-price">${money(p.price)}</div><p>${isPlant ? "A living aquarium plant selected for aquascape structure. Match its light, nutrition and placement needs to your system." : p.spec + ". Match every component to the real aquarium volume, inhabitants and manufacturer guidance."}</p><div class="spec-grid product-specs ${isPlant || p.tank ? "specs-four" : "specs-three"}">${isPlant ? `<div class="spec"><span>Light</span><strong>${p.light}</strong></div><div class="spec"><span>Difficulty</span><strong>${p.care}</strong></div><div class="spec"><span>Placement</span><strong>${p.placement}</strong></div><div class="spec"><span>CO₂</span><strong>${p.co2}</strong></div>` : `<div class="spec"><span>Category</span><strong>${p.type}</strong></div>${p.tank ? `<div class="spec"><span>${p.type === "Tank" ? "Capacity" : "Suggested upper volume"}</span><strong>${p.tank} L</strong></div>` : ""}<div class="spec"><span>Key specification</span><strong>${p.spec}</strong></div><div class="spec"><span>Availability</span><strong>${p.available}</strong></div>`}</div><div class="notice">Product specifications and inclusions are verified with authorized brand distributors.</div><div class="card-actions"><button class="btn btn-primary add-cart" data-id="${p.id}" data-kind="${isPlant ? "plant" : "equipment"}">Add to bag</button><a class="btn btn-outline" href="${page(isPlant ? "aquatic-plants.html" : "equipment.html")}">Back to collection</a></div></div></div></section></main>`;
   }
   function planner() {
-    return `<main id="main">${pageHero("Tank Planner", "Plan the system before you plan the fish.", "Build a size-aware starter checklist for freshwater, planted freshwater or marine aquariums. This is a planning aid, not a husbandry guarantee.", asset("images/equipment/rimless-60.jpg"))}<section class="section"><div class="container planner"><form class="planner-form" id="planner-form"><h2 style="font-size:1.6rem">Your aquarium</h2><div class="field"><label for="plan-type">Tank type</label><select id="plan-type"><option value="Freshwater">Freshwater</option><option value="Planted">Planted freshwater</option><option value="Marine">Marine</option></select></div><div class="field"><label for="plan-volume">Desired volume (litres)</label><input id="plan-volume" type="number" min="20" max="500" value="60"></div><div class="field"><label for="plan-level">Experience level</label><select id="plan-level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="field"><label for="plan-pref">Setup preference</label><select id="plan-pref"><option value="Community">Calm community</option><option value="Display">Display aquascape</option><option value="Species">Species-focused</option></select></div><button class="btn btn-outline" type="reset">Reset</button></form><div class="planner-results"><span class="eyebrow">Suggested foundation</span><h2 style="font-size:1.8rem">Your equipment checklist</h2><div class="planner-summary"><p class="results-info planner-note"></p><strong class="planner-count" aria-live="polite"></strong></div><div class="checklist"></div><button class="btn btn-primary planner-add">Add selected hardware to bag</button><div class="notice" style="margin-top:18px">Cycle and test the aquarium before adding animals. Marine and freshwater requirements are not interchangeable.</div></div></div></section></main>`;
+    return `<main id="main">${pageHero("Tank Planner", "Plan the system before you plan the fish.", "Build a size-aware starter checklist for freshwater, planted freshwater or marine aquariums. This is a planning aid, not a husbandry guarantee.", asset("images/equipment/rimless-60.jpg"))}<section class="section"><div class="container planner"><form class="planner-form" id="planner-form"><h2 style="font-size:1.6rem">Your aquarium</h2><div class="field"><label for="plan-type">Tank type</label><select id="plan-type"><option value="Freshwater">Freshwater</option><option value="Planted">Planted freshwater</option><option value="Marine">Marine</option></select></div><div class="field"><label for="plan-volume">Desired volume (litres)</label><input id="plan-volume" type="number" min="20" max="500" value="60"></div><div class="field"><label for="plan-level">Experience level</label><select id="plan-level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div><div class="field"><label for="plan-pref">Setup preference</label><select id="plan-pref"><option value="Community">Calm community</option><option value="Display">Display aquascape</option><option value="Species">Species-focused</option></select></div><button class="btn btn-outline" type="reset">Reset</button></form><div class="planner-results"><span class="eyebrow">Suggested foundation</span><h2 style="font-size:1.8rem">Your equipment checklist</h2><div class="planner-summary"><p class="results-info planner-note"></p><strong class="planner-count" aria-live="polite"></strong></div><div class="checklist"></div><button class="btn btn-primary planner-add" style="margin-top:22px">Add selected hardware to bag</button><div class="notice" style="margin-top:18px">Cycle and test the aquarium before adding animals. Marine and freshwater requirements are not interchangeable.</div></div></div></section></main>`;
   }
   function about() {
     const pathways = [
@@ -1193,6 +1193,13 @@
     if (on) setTimeout(() => e.querySelector("input,button,a")?.focus(), 20);
     else e._returnFocus?.focus?.();
   }
+  const fallbackImages = {
+    fish: asset("images/home/marine-aquarium.jpg"),
+    plant: asset("images/home/planted-aquarium.jpg"),
+    equipment: asset("images/equipment/aquascape-tools.jpg"),
+    about: asset("images/about/aquarium-gallery.jpg"),
+    default: asset("images/home/hero-reef.jpg"),
+  };
   document.addEventListener(
     "error",
     (event) => {
@@ -1203,6 +1210,18 @@
       )
         return;
       const failedSource = image.currentSrc || image.src;
+      if (!image.dataset.fallbackTried) {
+        image.dataset.fallbackTried = "true";
+        let fb = fallbackImages.default;
+        if (failedSource.includes("/fish/")) fb = fallbackImages.fish;
+        else if (failedSource.includes("/plants/")) fb = fallbackImages.plant;
+        else if (failedSource.includes("/equipment/")) fb = fallbackImages.equipment;
+        else if (failedSource.includes("/about/")) fb = fallbackImages.about;
+        if (fb && !failedSource.endsWith(fb)) {
+          image.src = fb;
+          return;
+        }
+      }
       if (image.dataset.failedSource === failedSource) return;
       image.dataset.failedSource = failedSource;
       image.hidden = true;
@@ -1447,8 +1466,8 @@
       update("Freshwater");
     });
   }
-  function initCustomSelect(selectId) {
-    const sel = document.getElementById(selectId);
+  function initCustomSelect(target) {
+    const sel = typeof target === "string" ? document.getElementById(target) : target;
     if (!sel || sel.dataset.customized) return;
     sel.dataset.customized = "true";
 
@@ -1462,7 +1481,12 @@
     trigger.className = "custom-select-trigger";
     trigger.setAttribute("aria-haspopup", "listbox");
     trigger.setAttribute("aria-expanded", "false");
-    trigger.setAttribute("aria-label", sel.getAttribute("aria-label") || "Sort options");
+    trigger.setAttribute(
+      "aria-label",
+      sel.getAttribute("aria-label") ||
+        sel.closest(".field")?.querySelector("label")?.textContent ||
+        "Select option",
+    );
 
     const triggerText = document.createElement("span");
     triggerText.className = "custom-select-text";
@@ -1491,6 +1515,10 @@
         optBtn.classList.toggle("selected", isSel);
         optBtn.setAttribute("aria-selected", String(isSel));
       });
+      if (sel.value) {
+        trigger.style.borderColor = "";
+        trigger.style.boxShadow = "";
+      }
     };
 
     Array.from(sel.options).forEach((opt) => {
@@ -1551,6 +1579,21 @@
 
     sel.addEventListener("change", syncFromSelect);
     sel.addEventListener("input", syncFromSelect);
+    sel.addEventListener("focus", () => trigger.focus());
+    sel.addEventListener("invalid", () => {
+      trigger.style.borderColor = "#c0392b";
+      trigger.style.boxShadow = "0 0 0 3px rgba(192, 57, 43, 0.2)";
+      trigger.focus();
+    });
+    trigger.addEventListener("blur", () => {
+      if (sel.value) {
+        trigger.style.borderColor = "";
+        trigger.style.boxShadow = "";
+      }
+    });
+    if (sel.form) {
+      sel.form.addEventListener("reset", () => setTimeout(syncFromSelect, 20));
+    }
     syncFromSelect();
   }
   function initFish() {
@@ -1602,7 +1645,10 @@
         .querySelectorAll(
           "#fish-search,#water-filter,#care-filter,#tank-filter",
         )
-        .forEach((x) => (x.value = ""));
+        .forEach((x) => {
+          x.value = "";
+          x.dispatchEvent(new Event("change"));
+        });
       document.querySelector("#planted-filter").checked = false;
       update();
     };
@@ -1622,6 +1668,9 @@
     panel.querySelector(".filter-apply").onclick = () => setFiltersOpen(false);
     update();
     initCustomSelect("fish-sort");
+    initCustomSelect("water-filter");
+    initCustomSelect("care-filter");
+    initCustomSelect("tank-filter");
   }
   function initPlants() {
     const grid = document.querySelector(".plant-grid");
@@ -1751,6 +1800,9 @@
         .forEach((x) => addCart(x.dataset.id));
     };
     update();
+    initCustomSelect("plan-type");
+    initCustomSelect("plan-level");
+    initCustomSelect("plan-pref");
   }
   function initContact() {
     const f = document.querySelector("#contact-form");
@@ -1760,6 +1812,10 @@
       if (q.get(k) && f.elements[k]) f.elements[k].value = q.get(k);
     });
     if (q.get("type")) f.elements.type.value = q.get("type");
+    initCustomSelect("enquiry-type");
+    initCustomSelect("category");
+    initCustomSelect("method");
+    initCustomSelect("tank-type");
     f.onsubmit = (e) => {
       e.preventDefault();
       if (!f.reportValidity()) return;
@@ -1818,4 +1874,5 @@
   initContact();
   initCheckout();
   initGuides();
+  document.querySelectorAll("select:not([data-customized])").forEach(initCustomSelect);
 })();

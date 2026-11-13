@@ -1439,10 +1439,15 @@ p {
   display: inline-block;
   min-width: 200px;
 }
+.field .custom-select {
+  width: 100%;
+  display: block;
+  min-width: 0;
+}
 .custom-select-trigger {
   width: 100%;
-  min-height: 46px;
-  padding: 10px 16px;
+  min-height: 48px;
+  padding: 11px 16px;
   border: 1px solid var(--border);
   background: var(--surface);
   color: var(--ink);
@@ -1486,6 +1491,8 @@ p {
   padding: 6px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
   display: none;
+  max-height: 280px;
+  overflow-y: auto;
 }
 .custom-select.open .custom-select-menu,
 .custom-select-menu.open {
@@ -1494,12 +1501,12 @@ p {
 }
 .custom-select-option {
   width: 100%;
-  padding: 10px 14px;
+  padding: 11px 16px;
   border: none;
   background: transparent;
   color: var(--ink);
-  border-radius: 8px;
-  font-size: 0.92rem;
+  border-radius: 9px;
+  font-size: 0.94rem;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -1527,10 +1534,13 @@ p {
 }
 .custom-select select {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
   pointer-events: none;
-  width: 0;
-  height: 0;
+  z-index: -1;
   margin: 0;
 }
 .filter-row {
@@ -1565,13 +1575,14 @@ p {
 select,
 .field select,
 .toolbar select {
-  min-height: 46px;
+  min-height: 48px;
   border: 1px solid var(--border);
   background-color: var(--surface);
   color: var(--ink);
   border-radius: 13px;
-  padding: 10px 14px;
+  padding: 11px 14px;
   padding-inline-end: 38px;
+  font-size: 16px;
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23587b8d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
@@ -1730,6 +1741,11 @@ select,
   display: grid;
   gap: 10px;
   margin-top: 18px;
+  margin-bottom: 22px;
+}
+.planner-add {
+  margin-top: 22px;
+  margin-bottom: 6px;
 }
 .planner-summary {
   display: flex;
@@ -2576,13 +2592,42 @@ select,
     grid-template-columns: repeat(2, 1fr);
     gap: 16px 20px;
     padding: 24px;
+    align-items: end;
+  }
+  .filter-panel .filter-mobile-head {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
   }
   .filter-panel .field + .field {
     margin-top: 0;
   }
-  .filter-panel h3,
-  .filter-panel .btn {
-    grid-column: 1/-1;
+  .filter-panel .field {
+    margin: 0;
+    width: 100%;
+  }
+  .filter-panel .field:has(#planted-filter),
+  .filter-panel .field:nth-child(6) {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+  }
+  .filter-panel .check-control {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+  }
+  .filter-panel #clear-filters {
+    grid-column: auto;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   .article-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -3394,6 +3439,29 @@ select,
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 36px;
+}
+.journal-grid > :last-child,
+.journal-grid > :last-child:nth-child(odd) {
+  grid-column: auto !important;
+}
+@media (max-width: 900px) {
+  .journal-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .journal-grid > :last-child,
+  .journal-grid > :last-child:nth-child(odd) {
+    grid-column: auto !important;
+  }
+  .journal-card {
+    padding: 22px 16px;
+  }
+}
+@media (max-width: 640px) {
+  .journal-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 .journal-card {
   background: var(--surface);
