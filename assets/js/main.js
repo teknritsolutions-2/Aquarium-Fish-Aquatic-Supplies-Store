@@ -642,7 +642,7 @@
     ],
   };
   function careGuides() {
-    return `<main id="main">${pageHero("Care Guides", "Better aquariums begin with better questions.", "Original, practical reading on setup, water quality, planted tanks, maintenance and responsible fish introductions.", asset("images/home/freshwater-aquarium.jpg"))}<section class="section"><div class="container"><div class="toolbar guides-toolbar"><div class="filter-row guide-filters"><button class="filter-btn active" data-guide="All">All</button>${[...new Set(D.guides.map((g) => g.category))].map((x) => `<button class="filter-btn" data-guide="${x}">${x}</button>`).join("")}</div><div class="guide-search-wrap"><input id="guide-search" class="search-input" type="search" placeholder="Search care guides…" aria-label="Search care guides"></div></div><div class="article-grid guides-grid">${D.guides.map((g, i, all) => guideCard(g, { featured: i === 0, closing: i === all.length - 1 })).join("")}</div></div></section><section class="section feature-strip"><div class="container split split-cta"><div><span class="eyebrow">Need a practical starting point?</span><h2>Turn reading into an equipment checklist.</h2><p class="lede">The planner connects aquarium type and volume to suitable hardware, while keeping cycling and husbandry decisions explicit.</p></div><a class="btn btn-primary" href="${page("tank-planner.html")}">Open tank planner</a></div></section></main>`;
+    return `<main id="main">${pageHero("Care Guides", "Better aquariums begin with better questions.", "Original, practical reading on setup, water quality, planted tanks, maintenance and responsible fish introductions.", asset("images/home/freshwater-aquarium.jpg"))}<section class="section"><div class="container"><div class="toolbar guides-toolbar"><div class="filter-row guide-filters"><button class="filter-btn active" data-guide="All">All</button>${[...new Set(D.guides.map((g) => g.category))].map((x) => `<button class="filter-btn" data-guide="${x}">${x}</button>`).join("")}</div><div class="guide-search-wrap"><input id="guide-search" class="search-input" type="search" placeholder="Search care guides…" aria-label="Search care guides"></div></div><div class="article-grid guides-grid">${D.guides.map((g) => guideCard(g)).join("")}</div></div></section><section class="section feature-strip"><div class="container split split-cta"><div><span class="eyebrow">Need a practical starting point?</span><h2>Turn reading into an equipment checklist.</h2><p class="lede">The planner connects aquarium type and volume to suitable hardware, while keeping cycling and husbandry decisions explicit.</p></div><a class="btn btn-primary" href="${page("tank-planner.html")}">Open tank planner</a></div></section></main>`;
   }
   function guide(id) {
     const g = D.guides.find((x) => x.id === id) || D.guides[0],
@@ -781,7 +781,7 @@
           <div class="grid grid-4 team-grid">
             <div class="team-card">
               <div class="team-avatar-lockup">
-                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #0a6383, #2289b2)">
+                <div class="team-avatar-circle">
                   <span class="avatar-initials">ER</span>
                 </div>
                 <span class="team-badge">Master Scaper</span>
@@ -795,7 +795,7 @@
             </div>
             <div class="team-card">
               <div class="team-avatar-lockup">
-                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #074766, #0e7490)">
+                <div class="team-avatar-circle">
                   <span class="avatar-initials">MC</span>
                 </div>
                 <span class="team-badge">Veterinary Lead</span>
@@ -809,7 +809,7 @@
             </div>
             <div class="team-card">
               <div class="team-avatar-lockup">
-                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #065f46, #0d9488)">
+                <div class="team-avatar-circle">
                   <span class="avatar-initials">SA</span>
                 </div>
                 <span class="team-badge">Flora Director</span>
@@ -823,7 +823,7 @@
             </div>
             <div class="team-card">
               <div class="team-avatar-lockup">
-                <div class="team-avatar-circle" style="background:linear-gradient(135deg, #1e3a5f, #2563eb)">
+                <div class="team-avatar-circle">
                   <span class="avatar-initials">DT</span>
                 </div>
                 <span class="team-badge">Systems Specialist</span>
