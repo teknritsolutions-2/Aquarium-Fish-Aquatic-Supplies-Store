@@ -255,7 +255,7 @@
               <p class="lede" style="max-width:760px;margin-inline:auto">Every great aquascape begins with an intentional visual discipline. Discover the timeless styles that define modern aquatic design.</p>
             </div>
           </div>
-          <div class="grid grid-2 style-grid">
+          <div class="style-grid">
             <div class="style-card">
               <div class="style-media">
                 <img src="${asset("images/plants/monte-carlo.jpg")}" alt="Iwagumi style aquascape with carpet">
@@ -263,11 +263,11 @@
               </div>
               <div class="style-body">
                 <h3>Iwagumi Style</h3>
-                <p>Derived from Japanese stone gardening, Iwagumi focuses on odd-numbered rock formations (Oyaishi master stone supported by Fukuishi and Soeishi) surrounded by a continuous green carpet.</p>
+                <p>Japanese rock gardening aesthetics built around an odd-numbered stone layout with a continuous lush carpet.</p>
                 <div class="style-meta">
-                  <div><strong>Key Flora:</strong> Monte Carlo, Dwarf Hairgrass</div>
-                  <div><strong>Hardscape:</strong> Seiryu Stone, Dragon Stone</div>
-                  <div><strong>Livestock:</strong> Cardinal Tetra, Celestial Pearl Danio</div>
+                  <div><strong>Key Flora:</strong> Monte Carlo, Hairgrass</div>
+                  <div><strong>Hardscape:</strong> Seiryu &amp; Dragon Stone</div>
+                  <div><strong>Livestock:</strong> Cardinal Tetra School</div>
                 </div>
                 <a class="text-link" href="${page("aquatic-plants.html")}">Explore carpeting plants ${svg("arrow")}</a>
               </div>
@@ -279,11 +279,11 @@
               </div>
               <div class="style-body">
                 <h3>Nature Aquarium Style</h3>
-                <p>Pioneered by Takashi Amano, this style recreates terrestrial forests and wild streams underwater using weathered driftwood roots, clinging mosses, and organic asymmetrical balance.</p>
+                <p>Wild river and forest scapes combining weathered driftwood branches with clinging moss and natural balance.</p>
                 <div class="style-meta">
-                  <div><strong>Key Flora:</strong> Anubias Nana, Java Fern, Bucephalandra</div>
-                  <div><strong>Hardscape:</strong> Driftwood Branches, River Pebbles</div>
-                  <div><strong>Livestock:</strong> Harlequin Rasbora, Corydoras Panda</div>
+                  <div><strong>Key Flora:</strong> Anubias Nana, Java Fern</div>
+                  <div><strong>Hardscape:</strong> Driftwood &amp; River Stone</div>
+                  <div><strong>Livestock:</strong> Harlequin Rasbora Shoal</div>
                 </div>
                 <a class="text-link" href="${page("guides/planted-tank-basics.html")}">Read planted scape guide ${svg("arrow")}</a>
               </div>
@@ -295,11 +295,11 @@
               </div>
               <div class="style-body">
                 <h3>Dutch Aquascape</h3>
-                <p>The traditional European botanical style emphasizing strict plant variety, color contrast, and geometric planting "streets" without heavy stone or wood hardscapes.</p>
+                <p>Classic European botanical design emphasizing geometric plant terraces, vibrant stem contrasts, and no hardscape.</p>
                 <div class="style-meta">
-                  <div><strong>Key Flora:</strong> Rotala Rotundifolia, Cryptocoryne, Wisteria</div>
-                  <div><strong>Key Requirement:</strong> High PAR Light & Stable CO₂</div>
-                  <div><strong>Livestock:</strong> Honey Gourami, Neon Tetra</div>
+                  <div><strong>Key Flora:</strong> Rotala, Cryptocoryne</div>
+                  <div><strong>Hardscape:</strong> Dense Plant Terraces</div>
+                  <div><strong>Livestock:</strong> Neon Tetra &amp; Gourami</div>
                 </div>
                 <a class="text-link" href="${page("aquatic-plants.html")}">View background stem plants ${svg("arrow")}</a>
               </div>
@@ -311,11 +311,11 @@
               </div>
               <div class="style-body">
                 <h3>Jungle Biotope</h3>
-                <p>An untamed aquatic sanctuary celebrating lush vertical growth, floating root curtains, shaded leaf litter, and calm natural water movement.</p>
+                <p>An untamed riverbank sanctuary with floating root curtains, dense vertical stems, leaf litter, and calm water.</p>
                 <div class="style-meta">
-                  <div><strong>Key Flora:</strong> Vallisneria, Red Root Floater, Java Moss</div>
-                  <div><strong>Hardscape:</strong> Mangrove Root, Botanical Pods</div>
-                  <div><strong>Livestock:</strong> Angelfish, Kuhli Loach, Discus</div>
+                  <div><strong>Key Flora:</strong> Vallisneria, Java Moss</div>
+                  <div><strong>Hardscape:</strong> Mangrove Root &amp; Pods</div>
+                  <div><strong>Livestock:</strong> Angelfish &amp; Kuhli Loach</div>
                 </div>
                 <a class="text-link" href="${page("fish-catalog.html")}">Browse community fish ${svg("arrow")}</a>
               </div>
